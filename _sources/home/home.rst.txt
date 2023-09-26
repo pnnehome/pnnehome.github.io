@@ -1,24 +1,14 @@
 :html_theme.sidebar_secondary.remove:
 
-.. pNNE documentation master file, created by
-   sphinx-quickstart on Mon Sep 18 12:08:20 2023.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+:parenttoc: True
+
+.. _home:
 
 Welcome to pNNE
 ===============
 **Pre-trained Neural Network Estimator (pNNE)** is a pre-trained estimator for consumer search model. 
 The idea is to allocate the bulk of work to the training stage, so an end user only needs to download the package and feed it with data. 
 The estimation takes only seconds on the end user's computer.
-
-.. toctree::
-   :maxdepth: 2
-
-.. toctree::
-   :hidden:
-
-    Home <home/home>
-    Code <code/code>
 
 
 Below is a brief overview how to apply pNNE to your search data. Click "code" tab above for code files (Matlab).
