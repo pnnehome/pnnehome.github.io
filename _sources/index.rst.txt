@@ -32,7 +32,7 @@ The main function to execute estimation is ``nne_estimate.m``, as shown below.
 
 .. code-block:: console
 
-   result = nne_estimate(net, prior, Y, Xp, Xa, Xc, consumer_idx)
+   result = nne_estimate(nne, prior, Y, Xp, Xa, Xc, consumer_idx)
 
 The required inputs: (i) ``nne`` stores the trained neural net and some pre-defined settings, available from the file ``trained_nne.mat``, and (ii)  ``Xp``, ``Xa``, ``Xc``, ``Y``, and ``consumer_index`` store your data.
 
@@ -140,7 +140,7 @@ The nne_estimate function has standard error calculation built in. Simply add ``
 
 .. code-block:: console
 
-    >> result = nne_estimate(net, prior, Y, Xp, Xa, Xc, consumer_idx, se = true);
+    >> result = nne_estimate(nne, prior, Y, Xp, Xa, Xc, consumer_idx, se = true);
     >> result
     result = 8×3 table
 
