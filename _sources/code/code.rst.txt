@@ -9,7 +9,7 @@ Code
 
 |
 
-You can download the Matlab files `here <https://drive.google.com/u/0/uc?id=1D007UsTPUCKRoi6ofuGjI3v6txeIpTtr&export=download>`_ (beta version; sep_17_2023).
+You can download the Matlab files `here <_static/packages_matlab/initial_version_sep_17_2023.zip>`_ (beta version; sep_17_2023).
 
 Below are documentation for each file. We suggest you first read the example in :ref:`home`, which is an easier way to get an idea of how the code works.
 
