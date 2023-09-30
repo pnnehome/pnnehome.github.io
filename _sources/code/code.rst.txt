@@ -38,7 +38,7 @@ Current settings on the range of data accepted by pNNE:
 
 This file stores the trained neural net as well as some settings.
 
-- nne: a structure that stores the trained neural net, as well as some settings used in training, such as the largest number of product attributes allowed, the smallest sample size allowed, the range of search model parameters considered, etc.
+- ``nne``: a structure that stores the trained neural net, as well as some settings used in training, such as the largest number of product attributes allowed, the smallest sample size allowed, the range of search model parameters considered, etc.
 
 |
 
