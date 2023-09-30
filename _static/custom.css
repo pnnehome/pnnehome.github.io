@@ -25,4 +25,9 @@
 .highlight-console pre {
     font-size: 14px;
     font-family: "Consolas", monospace
-  }
+}
+
+code {
+    font-family: "Consolas", monospace;
+    color:dodgerblue
+}
