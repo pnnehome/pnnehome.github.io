@@ -299,7 +299,7 @@ document.write(`
 <div class="line"><br /></div>
 </div>
 <p>The main function to execute estimation is <code class="docutils literal notranslate"><span class="pre">nne_estimate.m</span></code>, as shown below.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">result = nne_estimate(nne, prior, Y, Xp, Xa, Xc, consumer_idx)</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">result = nne_estimate(nne, Y, Xp, Xa, Xc, consumer_idx)</span>
 </pre></div>
 </div>
 <p>The required inputs: (i) <code class="docutils literal notranslate"><span class="pre">nne</span></code> stores the trained neural net and some pre-defined settings, available from the file <code class="docutils literal notranslate"><span class="pre">trained_nne.mat</span></code>, and (ii)  <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code> store your data.</p>
@@ -393,7 +393,7 @@ document.write(`
 <section id="bootstrap-standard-errors">
 <h2>3) Bootstrap standard errors<a class="headerlink" href="#bootstrap-standard-errors" title="Link to this heading">#</a></h2>
 <p>The nne_estimate function has standard error calculation built in. Simply add <code class="docutils literal notranslate"><span class="pre">&quot;se</span> <span class="pre">=</span> <span class="pre">true&quot;</span></code> option as shown below. The output will include an additional column of standard errors. The calculation bootstraps 50 samples so execution time will be longer, but it can take advantage of parallel computing toolbox if installed.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt; result = nne_estimate(nne, prior, Y, Xp, Xa, Xc, consumer_idx, se = true);</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt; result = nne_estimate(nne, Y, Xp, Xa, Xc, consumer_idx, se = true);</span>
 <span class="go">&gt;&gt; result</span>
 <span class="go">result = 8×3 table</span>
 
