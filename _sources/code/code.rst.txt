@@ -9,13 +9,13 @@ Code
 
 |
 
-You can find the Matlab files |code_link| (still in beta version).
+You can find the Matlab files in |code_link| (still in beta version).
 
 .. |code_link| raw:: html
 
-   <a href="https://github.com/pnnehome/code_matlab" target="_blank">here</a>
+   <a href="https://github.com/pnnehome/code_matlab" target="_blank">this github repository</a>
 
-Below are documentation for each file. We suggest you first read the example in :ref:`home`, which is an easier way to get an idea of how the code works.
+Below are documentation for the files. We suggest you first read the example in :ref:`home`, which is an easier way to get an idea of how the code works.
 
 |
 
@@ -27,10 +27,10 @@ Current settings on the range of data accepted by pNNE:
 
 - :brown-text:`Sample size`: n ≥ 1000 number of consumers (or search sessions).
 - :brown-text:`Number of options` per consumer: 15 ≤ J ≤ 35.
-- Number of :brown-text:`product attributes`: 2 ≤ p ≤ 8. Number of consumer attributes:  0 ≤ c ≤ 5. Number of advertising attributes:  0 ≤ a ≤ 2. 
-- :brown-text:`Buy rate` (fraction of consumers who didn't buy outside good) is between 0.5% and 50%.
-- :brown-text:`Search rate` (fraction of consumers who went beyond the free search) is between 1% and 70%.
-- :brown-text:`Average number of searches` per consumer is between 1 and 4.
+- Numbers of :brown-text:`product attributes`, :brown-text:`consumer attributes`, and :brown-text:`advertising attributes`: 2 ≤ p ≤ 8, 0 ≤ c ≤ 5, and 0 ≤ a ≤ 2. 
+- :brown-text:`Buy rate` (fraction of consumers who bought inside good) is between 0.5% and 70%.
+- :brown-text:`Search rate` (fraction of consumers who went beyond free search) is between 1% and 80%.
+- :brown-text:`Average number of searches` per consumer is between 1 and 5.
 
 |
 
