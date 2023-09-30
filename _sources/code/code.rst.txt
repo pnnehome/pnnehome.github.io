@@ -9,7 +9,11 @@ Code
 
 |
 
-You can download the Matlab files `here <_static/packages_matlab/initial_version_sep_17_2023.zip>`_ (beta version; sep_17_2023).
+You can find the Matlab files |code_link| (still in beta version).
+
+.. |code_link| raw:: html
+
+   <a href="https://github.com/pnnehome/code_matlab" target="_blank">here</a>
 
 Below are documentation for each file. We suggest you first read the example in :ref:`home`, which is an easier way to get an idea of how the code works.
 
