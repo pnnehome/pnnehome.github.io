@@ -9,7 +9,7 @@ Code
 
 |
 
-You can find the Matlab files in |code_link| (still in beta version).
+You can find the Matlab (R2023b) files in |code_link| (still in beta version).
 
 .. |code_link| raw:: html
 
