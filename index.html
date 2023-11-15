@@ -302,8 +302,12 @@ document.write(`
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">result = nne_estimate(nne, Y, Xp, Xa, Xc, consumer_idx)</span>
 </pre></div>
 </div>
-<p>The required inputs: (i) <code class="docutils literal notranslate"><span class="pre">nne</span></code> stores the trained neural net and some pre-defined settings, available from the file <code class="docutils literal notranslate"><span class="pre">trained_nne.mat</span></code>, and (ii)  <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code> store your data.</p>
-<p>The output: <code class="docutils literal notranslate"><span class="pre">result</span></code> is a table storing the parameter estimate of a standard consumer search model.</p>
+<p>The inputs and output:</p>
+<ul class="simple">
+<li><p>Input <code class="docutils literal notranslate"><span class="pre">nne</span></code> stores the trained neural net and some pre-defined settings, available from the file <code class="docutils literal notranslate"><span class="pre">trained_nne.mat</span></code>;</p></li>
+<li><p>Inputs <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code> store your data.</p></li>
+<li><p>Output <code class="docutils literal notranslate"><span class="pre">result</span></code> is a table storing the parameter estimate of a standard consumer search model.</p></li>
+</ul>
 <p>Below shows an example. The total execution time is 0.78 sec on a laptop, including overheads such as some data sanity checks.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;  load(&#39;trained_nne.mat&#39;, &#39;nne&#39;)</span>
 <span class="go">&gt;&gt;  tic</span>
@@ -324,7 +328,7 @@ document.write(`
 <span class="go"> &quot;\beta_2&quot;      -0.53811</span>
 </pre></div>
 </div>
-<p>The rest of this page gives more details on the search model, how to format data (<code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code>), and how to get standard errors.</p>
+<p>The rest of this page gives more details on the search model, how to format your data, and how to get standard errors.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -340,7 +344,7 @@ document.write(`
 </section>
 <section id="data-format">
 <h2>2) Data format<a class="headerlink" href="#data-format" title="Link to this heading">#</a></h2>
-<p>Oraganize data into five arrays: <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code>. Respectively: <code class="docutils literal notranslate"><span class="pre">Xp</span></code> stores product attributes; <code class="docutils literal notranslate"><span class="pre">Xa</span></code> stores advertising attributes; and <code class="docutils literal notranslate"><span class="pre">Xc</span></code> stores consumer attributes; <code class="docutils literal notranslate"><span class="pre">Y</span></code> stores search and purchase outcomes; <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code> identifies consumers.</p>
+<p>Organize data into five arrays: <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code>. Respectively: <code class="docutils literal notranslate"><span class="pre">Xp</span></code> stores product attributes; <code class="docutils literal notranslate"><span class="pre">Xa</span></code> stores advertising attributes; and <code class="docutils literal notranslate"><span class="pre">Xc</span></code> stores consumer attributes; <code class="docutils literal notranslate"><span class="pre">Y</span></code> stores search and purchase outcomes; <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code> identifies consumers.</p>
 <p>In the example below, there are n=10,000 consumers (or search sessions) and each consumer has J=20 options for search. There are 2 product attributes, 1 advertising attribute, and 3 consumer attributes.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;  whos Xp Xa Xc Y consumer_idx</span>
 

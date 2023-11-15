@@ -34,9 +34,11 @@ The main function to execute estimation is ``nne_estimate.m``, as shown below.
 
    result = nne_estimate(nne, Y, Xp, Xa, Xc, consumer_idx)
 
-The required inputs: (i) ``nne`` stores the trained neural net and some pre-defined settings, available from the file ``trained_nne.mat``, and (ii)  ``Xp``, ``Xa``, ``Xc``, ``Y``, and ``consumer_index`` store your data.
+The inputs and output: 
 
-The output: ``result`` is a table storing the parameter estimate of a standard consumer search model.
+* Input ``nne`` stores the trained neural net and some pre-defined settings, available from the file ``trained_nne.mat``;
+* Inputs ``Xp``, ``Xa``, ``Xc``, ``Y``, and ``consumer_index`` store your data.
+* Output ``result`` is a table storing the parameter estimate of a standard consumer search model.
 
 Below shows an example. The total execution time is 0.78 sec on a laptop, including overheads such as some data sanity checks.
 
@@ -60,7 +62,7 @@ Below shows an example. The total execution time is 0.78 sec on a laptop, includ
     "\beta_1"       0.25836
     "\beta_2"      -0.53811
 
-The rest of this page gives more details on the search model, how to format data (``Xp``, ``Xa``, ``Xc``, ``Y``, and ``consumer_index``), and how to get standard errors.
+The rest of this page gives more details on the search model, how to format your data, and how to get standard errors.
 
 |
 
@@ -79,7 +81,7 @@ A free search is endowed, to accommodate most data where consumer searches at le
 2) Data format
 -----------------
 
-Oraganize data into five arrays: ``Xp``, ``Xa``, ``Xc``, ``Y``, and ``consumer_index``. Respectively: ``Xp`` stores product attributes; ``Xa`` stores advertising attributes; and ``Xc`` stores consumer attributes; ``Y`` stores search and purchase outcomes; ``consumer_index`` identifies consumers.
+Organize data into five arrays: ``Xp``, ``Xa``, ``Xc``, ``Y``, and ``consumer_index``. Respectively: ``Xp`` stores product attributes; ``Xa`` stores advertising attributes; and ``Xc`` stores consumer attributes; ``Y`` stores search and purchase outcomes; ``consumer_index`` identifies consumers.
 
 In the example below, there are n=10,000 consumers (or search sessions) and each consumer has J=20 options for search. There are 2 product attributes, 1 advertising attribute, and 3 consumer attributes.
 
