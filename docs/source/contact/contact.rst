@@ -9,6 +9,7 @@ Contact
 
 |
 
-Yanhao 'Max' Wei, Marshall School of Business, University of Southern California
+Yanhao 'Max' Wei, Marshall School of Business, University of Southern California.
 
-Zhenling Jiang, Wharton School, University of Pennsylvania
+Zhenling Jiang, Wharton School, University of Pennsylvania.
+
