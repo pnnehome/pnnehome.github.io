@@ -31,7 +31,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=364eaeb9" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=15771bbd" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
@@ -41,6 +42,8 @@
     <script src="../_static/documentation_options.js?v=8a448e45"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'home/home';</script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -312,15 +315,11 @@ document.write(`
                   
   <section id="welcome-to-pnne">
 <span id="home"></span><h1>Welcome to pNNE<a class="headerlink" href="#welcome-to-pnne" title="Link to this heading">#</a></h1>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
 <p>This website provides a pre-trained estimator for consumer search model.</p>
 <p>The estimator is built as pNNE (pre-trained neural net estimator). The idea is to allocate the bulk of work to pre-training. So an end user can estimate the structural econometric model as easy as a reduced-form model.</p>
-<p>Below is a brief overview how to apply pNNE to your search data. For Matlab code and description, go to <a class="reference internal" href="../code/code.html#code"><span class="std std-ref">Code</span></a> page.</p>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
+<p>Below is a brief overview how to apply pNNE to your search data. For Matlab code and description, go to <a class="reference internal" href="../code/code.html#code"><span class="std std-ref">code</span></a> page.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>The main function to execute estimation is <code class="docutils literal notranslate"><span class="pre">nne_estimate.m</span></code>, as shown below.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">result = nne_estimate(nne, Y, Xp, Xa, Xc, consumer_idx)</span>
 </pre></div>
@@ -352,21 +351,15 @@ document.write(`
 </pre></div>
 </div>
 <p>The rest of this page gives more details on the search model, how to format your data, and how to get standard errors.</p>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
 <section id="the-search-model">
-<h2>1) The search model<a class="headerlink" href="#the-search-model" title="Link to this heading">#</a></h2>
+<h3>1) The search model<a class="headerlink" href="#the-search-model" title="Link to this heading">#</a></h3>
 <p>The econometric model to be estimated is a standard sequential search model. Each consumer faces J products (or options). She decides which options to search and which option to buy. Searching a product incurs a search cost but also reveals some utility for the product.</p>
 <p>A typical setting for the model is consumer search online, where a “consumer” is a “search session.” A consumer is shown a list of products. Clicking a product for more information is a search. After searching, the consumer may buy one product or an outside good. The list page usually shows some product attributes (e.g., review rating) that affect consumer utility for products. In addition, there may be some consumer attributes (e.g., past spending, visit time) that affect consumer outside utility. There may also be advertising attributes (e.g., ranking in the list) that affect search costs.</p>
 <p>There are three sets of parameters: <span class="math notranslate nohighlight">\(\beta\)</span> describes how product attributes affect utility,  <span class="math notranslate nohighlight">\(\eta\)</span> describes how consumer attributes affect outside utility, and <span class="math notranslate nohighlight">\(\alpha\)</span> describes how advertising attributes affect search costs.</p>
 <p>A free search is endowed, to accommodate most data where consumer searches at least once.</p>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
 </section>
 <section id="data-format">
-<h2>2) Data format<a class="headerlink" href="#data-format" title="Link to this heading">#</a></h2>
+<h3>2) Data format<a class="headerlink" href="#data-format" title="Link to this heading">#</a></h3>
 <p>Organize data into five arrays: <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code>. Respectively: <code class="docutils literal notranslate"><span class="pre">Xp</span></code> stores product attributes; <code class="docutils literal notranslate"><span class="pre">Xa</span></code> stores advertising attributes; and <code class="docutils literal notranslate"><span class="pre">Xc</span></code> stores consumer attributes; <code class="docutils literal notranslate"><span class="pre">Y</span></code> stores search and purchase outcomes; <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code> identifies consumers.</p>
 <p>In the example below, there are n=10,000 consumers (or search sessions) and each consumer has J=20 options for search. There are 2 product attributes, 1 advertising attribute, and 3 consumer attributes.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;  whos Xp Xa Xc Y consumer_idx</span>
@@ -413,12 +406,9 @@ document.write(`
 </div>
 <p>Consumer attributes <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, not displayed here, should have the same number of rows as the number of consumers (10,000 in this example).</p>
 <p>If data did not feature advertising attributes, we’d let <code class="docutils literal notranslate"><span class="pre">Xa</span></code> be 200,000 by 0 (no columns). If data did not feature consumer attributes, we’d let <code class="docutils literal notranslate"><span class="pre">Xc</span></code> be 10,000 by 0.</p>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
 </section>
 <section id="bootstrap-standard-errors">
-<h2>3) Bootstrap standard errors<a class="headerlink" href="#bootstrap-standard-errors" title="Link to this heading">#</a></h2>
+<h3>3) Bootstrap standard errors<a class="headerlink" href="#bootstrap-standard-errors" title="Link to this heading">#</a></h3>
 <p>The nne_estimate function has standard error calculation built in. Simply add <code class="docutils literal notranslate"><span class="pre">&quot;se</span> <span class="pre">=</span> <span class="pre">true&quot;</span></code> option as shown below. The output will include an additional column of standard errors. The calculation bootstraps 50 samples so execution time will be longer, but it can take advantage of parallel computing toolbox if installed.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt; result = nne_estimate(nne, Y, Xp, Xa, Xc, consumer_idx, se = true);</span>
 <span class="go">&gt;&gt; result</span>
@@ -436,6 +426,7 @@ document.write(`
 <span class="go">&quot;\beta_2&quot;      -0.53811    0.011032</span>
 </pre></div>
 </div>
+</section>
 </section>
 </section>
 

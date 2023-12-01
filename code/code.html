@@ -31,7 +31,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=364eaeb9" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=15771bbd" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
@@ -41,6 +42,8 @@
     <script src="../_static/documentation_options.js?v=8a448e45"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'code/code';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -311,14 +314,10 @@ document.write(`
                   
   <section id="code">
 <span id="id1"></span><h1>Code<a class="headerlink" href="#code" title="Link to this heading">#</a></h1>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p>You can find the Matlab (R2023b) files in <a href="https://github.com/pnnehome/code_matlab" target="_blank">this github repository</a> (still in beta version).</p>
-<p>Below are documentation for the files. We suggest you first read the example in <a class="reference internal" href="../home/home.html#home"><span class="std std-ref">Welcome to pNNE</span></a>, which is an easier way to get an idea of how the code works.</p>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
+<p>You can find the Matlab (R2023b) files in this <a class="reference external" href="https://github.com/pnnehome/code_matlab" rel="noopener noreferrer" target="_blank">GitHub directory</a> (still in beta version).</p>
+<p>Below are documentation for the files. We suggest you first read the example in <a class="reference internal" href="../home/home.html#home"><span class="std std-ref">home</span></a>, which is an easier way to get an idea of how the code works.</p>
+<section id="range-of-data-accepted">
+<h2>Range of data accepted:<a class="headerlink" href="#range-of-data-accepted" title="Link to this heading">#</a></h2>
 <p>Current settings on the range of data accepted by pNNE:</p>
 <p>*Current settings are relatively restrictive as pNNE is still in beta stage. We can change these settings in the next version of pNNE if there are requests to do so. Please contact us if you want to see a setting broadened.</p>
 <ul class="simple">
@@ -329,18 +328,18 @@ document.write(`
 <li><p><span class="brown-text">Search rate</span> (fraction of consumers who went beyond free search) is between 1% and 80%.</p></li>
 <li><p><span class="brown-text">Average number of searches</span> per consumer is between 1 and 5.</p></li>
 </ul>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">trained_nne.mat</span></code></p>
+</section>
+<section id="description-of-code-files">
+<h2>Description of code files<a class="headerlink" href="#description-of-code-files" title="Link to this heading">#</a></h2>
+<section id="trained-nne-mat">
+<h3><code class="docutils literal notranslate"><span class="pre">trained_nne.mat</span></code><a class="headerlink" href="#trained-nne-mat" title="Link to this heading">#</a></h3>
 <p>This file stores the trained neural net as well as some settings.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">nne</span></code>: a structure that stores the trained neural net, as well as some settings used in training, such as the largest number of product attributes allowed, the smallest sample size allowed, the range of search model parameters considered, etc.</p></li>
 </ul>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">nne_estimate.m</span></code></p>
+</section>
+<section id="nne-estimate-m">
+<h3><code class="docutils literal notranslate"><span class="pre">nne_estimate.m</span></code><a class="headerlink" href="#nne-estimate-m" title="Link to this heading">#</a></h3>
 <p>The main function to apply pNNE to your data.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">result = nne_estimate(nne, Y, Xp, Xa, Xc, consumer_idx, se=false, checks=true)</span>
 </pre></div>
@@ -360,42 +359,36 @@ document.write(`
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">result</span></code>: a table listing parameters and their estimates. If se=false, it has an additional column of standard errors.</p></li>
 </ul>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">moments.m</span></code></p>
+</section>
+<section id="moments-m">
+<h3><code class="docutils literal notranslate"><span class="pre">moments.m</span></code><a class="headerlink" href="#moments-m" title="Link to this heading">#</a></h3>
 <p>This function is used by nne_estimate.m. The function computes summary moments from data. These summary moments
 are then fed into the neural net as inputs.</p>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">regress_coef.m</span></code></p>
+</section>
+<section id="regress-coef-m">
+<h3><code class="docutils literal notranslate"><span class="pre">regress_coef.m</span></code><a class="headerlink" href="#regress-coef-m" title="Link to this heading">#</a></h3>
 <p>This function is used by moments.m. The function does ridge linear, logit, and multinomial logit regressions.
 These regressions are applied to the data to produce some of the summary moments.</p>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">mseLayer.m</span></code></p>
+</section>
+<section id="mselayer-m">
+<h3><code class="docutils literal notranslate"><span class="pre">mseLayer.m</span></code><a class="headerlink" href="#mselayer-m" title="Link to this heading">#</a></h3>
 <p>This function is a custom neural net layer used by our trained neural net. It is basically the same as
 Matlab’s built-in regressionLayer.m, except that it has some minor customization to better suit pNNE training.</p>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">search_stat.m</span></code></p>
+</section>
+<section id="search-stat-m">
+<h3><code class="docutils literal notranslate"><span class="pre">search_stat.m</span></code><a class="headerlink" href="#search-stat-m" title="Link to this heading">#</a></h3>
 <p>This function calculates some summary statistics of the data. It is used by nne_estimate.m to perform
 a part of the data saneity checks.</p>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">curve.mat</span></code></p>
+</section>
+<section id="curve-mat">
+<h3><code class="docutils literal notranslate"><span class="pre">curve.mat</span></code><a class="headerlink" href="#curve-mat" title="Link to this heading">#</a></h3>
 <p>This file stores the relation describing how log search cost affects reservation utility.</p>
 <ul class="simple">
-<li><p>curve: a table that stores a grid of log search cost and corresponding reservation utility.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curve</span></code>: a table that stores a grid of log search cost and corresponding reservation utility.</p></li>
 </ul>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">search_model.m</span></code></p>
+</section>
+<section id="search-model-m">
+<h3><code class="docutils literal notranslate"><span class="pre">search_model.m</span></code><a class="headerlink" href="#search-model-m" title="Link to this heading">#</a></h3>
 <p>The function that codes the search model. This function is used in training but not in estimation.
 We provide it for reference purpose. It is also useful if you want to conduct Monte Carlo experiments.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Y = search_model(par, curve, Xp, Xa, Xc, consumer_idx)</span>
@@ -411,6 +404,8 @@ We provide it for reference purpose. It is also useful if you want to conduct Mo
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code>: as described above. Simulated search and purchase choices.</p></li>
 </ul>
+</section>
+</section>
 </section>
 
 
