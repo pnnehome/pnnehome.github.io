@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contact &#8212; pNNE  documentation</title>
+    <title>Data &#8212; pNNE  documentation</title>
   
   
   
@@ -44,10 +44,12 @@
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'contact/contact';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data/data';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Data" href="../data/data.html" />
+    <link rel="next" title="Contact" href="../contact/contact.html" />
+    <link rel="prev" title="Code" href="../code/code.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -160,15 +162,15 @@
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../data/data.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
                          Data
                       </a>
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../contact/contact.html">
                          Contact
                       </a>
                     </li>
@@ -239,15 +241,15 @@ document.write(`
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../data/data.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
                          Data
                       </a>
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../contact/contact.html">
                          Contact
                       </a>
                     </li>
@@ -308,7 +310,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Contact</li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
   </ul>
 </nav>
 </div>
@@ -325,13 +327,50 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="contact">
-<span id="id1"></span><h1>Contact<a class="headerlink" href="#contact" title="Link to this heading">#</a></h1>
+  <section id="data">
+<span id="id1"></span><h1>Data<a class="headerlink" href="#data" title="Link to this heading">#</a></h1>
+<p>We share four sample datasets on which one can apply the pre-trained NNE.  You can find them in Matlab formats at <a class="reference external" href="https://github.com/pnnehome/code_matlab" rel="noopener noreferrer" target="_blank">GitHub directory</a>. These datasets are used in Wei and Jiang (2024b) (see <a class="reference internal" href="#papers">papers</a>) and come from sources with direct public access. More detailed descriptions of these datasets can be found in the paper too.</p>
+<section id="information-of-the-datasets">
+<h2>Information of the datasets<a class="headerlink" href="#information-of-the-datasets" title="Link to this heading">#</a></h2>
+<section id="expedia-destination-1">
+<h3>Expedia - destination 1<a class="headerlink" href="#expedia-destination-1" title="Link to this heading">#</a></h3>
+<p>This dataset comes from <a class="reference external" href="https://www.kaggle.com/competitions/expedia-personalized-sort/overview" rel="noopener noreferrer" target="_blank">a Kaggle contest</a> that studies hotel searches and bookings on Expedia.com. It has been used in several papers to study consumer online search behaviors. This dataset here consists of the search sessions for the largest travel destination in this contest. There are <span class="math notranslate nohighlight">\(n\)</span> = 1258 sessions. There are 3 product attributes, 2 consumer attributes, and 1 advertising attribute.</p>
+</section>
+<section id="expedia-destination-2">
+<h3>Expedia - destination 2<a class="headerlink" href="#expedia-destination-2" title="Link to this heading">#</a></h3>
+<p>This dataset consists of the search sessions for the second largest travel destination in the same contest as above. There are <span class="math notranslate nohighlight">\(n\)</span> = 897 sessions, slightly smaller than required by the pre-trained NNE (see <a class="reference internal" href="../code/code.html#code"><span class="std std-ref">code</span></a>). Nevertheless, in this case the pre-trained NNE seems to work OK despite this small shortfall.</p>
+</section>
+<section id="trivago-desktop-channel">
+<h3>Trivago - desktop channel<a class="headerlink" href="#trivago-desktop-channel" title="Link to this heading">#</a></h3>
+<p>This dataset comes from the <a class="reference external" href="https://recsys.trivago.cloud/challenge/dataset/" rel="noopener noreferrer" target="_blank">ACM RecSys Challenge</a> that analyzes user sessions on Trivago.com. This dataset here consists of the search sessions made on the desktop channel. The setting of Trivago (a meta-search engine) does not exactly fit the standard sequential search model. Nevertheless, we find it a good place to try out the pre-trained NNE.</p>
+</section>
+<section id="trivago-mobile-channel">
+<h3>Trivago - mobile channel<a class="headerlink" href="#trivago-mobile-channel" title="Link to this heading">#</a></h3>
+<p>This dataset consists of the search sessions made on the mobile channel from the same source as above.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>Yanhao ‘Max’ Wei, Marshall School of Business, University of Southern California.</p>
-<p>Zhenling Jiang, Wharton School, University of Pennsylvania.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<section id="papers">
+<h4>Papers<a class="headerlink" href="#papers" title="Link to this heading">#</a></h4>
+<p>Wei, Yanhao ‘Max’ and Zhenling Jiang (2024b), “A Pre-trained Estimator for Consumer Search Models.”</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+</section>
 </section>
 
 

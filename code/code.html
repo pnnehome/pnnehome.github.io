@@ -32,7 +32,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=15771bbd" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=17a44345" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
@@ -44,11 +44,12 @@
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'code/code';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Contact" href="../contact/contact.html" />
-    <link rel="prev" title="Welcome to pNNE" href="../home/home.html" />
+    <link rel="next" title="Data" href="../data/data.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="../home/home.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -128,7 +129,7 @@
     <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
-    <p class="title logo__title">pNNE</p>
+    <p class="title logo__title">pre-trained NNE</p>
   
 </a></div>
     
@@ -157,6 +158,13 @@
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="#">
                          Code
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../data/data.html">
+                         Data
                       </a>
                     </li>
                 
@@ -229,6 +237,13 @@ document.write(`
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="#">
                          Code
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../data/data.html">
+                         Data
                       </a>
                     </li>
                 
@@ -314,95 +329,99 @@ document.write(`
                   
   <section id="code">
 <span id="id1"></span><h1>Code<a class="headerlink" href="#code" title="Link to this heading">#</a></h1>
-<p>You can find the Matlab (R2023b) files in this <a class="reference external" href="https://github.com/pnnehome/code_matlab" rel="noopener noreferrer" target="_blank">GitHub directory</a> (still in beta version).</p>
-<p>Below are documentation for the files. We suggest you first read the example in <a class="reference internal" href="../home/home.html#home"><span class="std std-ref">home</span></a>, which is an easier way to get an idea of how the code works.</p>
+<p>You can find the Matlab (R2024a) files in this <a class="reference external" href="https://github.com/pnnehome/code_matlab" rel="noopener noreferrer" target="_blank">GitHub directory</a> (still in beta version).</p>
+<p>Below are documentation for the files. However, we suggest first reading the example in <a class="reference internal" href="../home/home.html#home"><span class="std std-ref">home</span></a>, which is an easier way to get an idea of how the code works.</p>
 <section id="range-of-data-accepted">
 <h2>Range of data accepted:<a class="headerlink" href="#range-of-data-accepted" title="Link to this heading">#</a></h2>
-<p>Current settings on the range of data accepted by pNNE:</p>
-<p>*Current settings are relatively restrictive as pNNE is still in beta stage. We can change these settings in the next version of pNNE if there are requests to do so. Please contact us if you want to see a setting broadened.</p>
+<p>Below list the current settings on the data dimensions accepted by pre-trained NNE. (<span class="note-text">Note: current settings are relatively restrictive as pre-trained NNE is still in beta stage. We can change these settings in the next version of pre-trained NNE if there are requests. Please feel free to contact us.</span>)</p>
 <ul class="simple">
-<li><p><span class="brown-text">Sample size</span>: n ≥ 1000 number of consumers (or search sessions).</p></li>
-<li><p><span class="brown-text">Number of options</span> per consumer: 15 ≤ J ≤ 35.</p></li>
-<li><p>Numbers of <span class="brown-text">product attributes</span>, <span class="brown-text">consumer attributes</span>, and <span class="brown-text">advertising attributes</span>: 2 ≤ p ≤ 8, 0 ≤ c ≤ 5, and 0 ≤ a ≤ 2.</p></li>
-<li><p><span class="brown-text">Buy rate</span> (fraction of consumers who bought inside good) is between 0.5% and 70%.</p></li>
-<li><p><span class="brown-text">Search rate</span> (fraction of consumers who went beyond free search) is between 1% and 80%.</p></li>
-<li><p><span class="brown-text">Average number of searches</span> per consumer is between 1 and 5.</p></li>
+<li><p><strong>Sample size</strong>: <span class="math notranslate nohighlight">\(n\)</span> ≥ 1000 consumers (or search sessions).</p></li>
+<li><p><strong>Number of options</strong>: 15 ≤ <span class="math notranslate nohighlight">\(J\)</span> ≤ 35.</p></li>
+<li><p>Number of <strong>product attributes</strong> is between 2 and 8.</p></li>
+<li><p>Number of <strong>consumer attributes</strong> is between 0 and 5.</p></li>
+<li><p>Number of <strong>advertising attributes</strong> is between 0 and 2.</p></li>
+</ul>
+<p>In addition, the NNE is pre-trained on data with following characteristics. If your data’s characterstics fall outside these ranges, the pre-trained NNE may not work as intended.</p>
+<ul class="simple">
+<li><p><strong>Buy rate</strong> (fraction of consumers who bought inside good) is between 0.5% and 70%.</p></li>
+<li><p><strong>Search rate</strong> (fraction of consumers who went beyond free search) is between 1% and 80%.</p></li>
+<li><p><strong>Average number of searches</strong> per consumer is between 1 and 5.</p></li>
 </ul>
 </section>
-<section id="description-of-code-files">
-<h2>Description of code files<a class="headerlink" href="#description-of-code-files" title="Link to this heading">#</a></h2>
+<section id="description-of-files">
+<h2>Description of files<a class="headerlink" href="#description-of-files" title="Link to this heading">#</a></h2>
 <section id="trained-nne-mat">
 <h3><code class="docutils literal notranslate"><span class="pre">trained_nne.mat</span></code><a class="headerlink" href="#trained-nne-mat" title="Link to this heading">#</a></h3>
-<p>This file stores the trained neural net as well as some settings.</p>
+<p>This file stores the trained neural net as well as pre-defined settings.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">nne</span></code>: a structure that stores the trained neural net, as well as some settings used in training, such as the largest number of product attributes allowed, the smallest sample size allowed, the range of search model parameters considered, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nne</span></code>: a structure that stores the trained neural net, as well as some settings used in training, such as the smallest sample size, the range on the number of product attributes, the prior of search model parameters, etc.</p></li>
 </ul>
 </section>
 <section id="nne-estimate-m">
 <h3><code class="docutils literal notranslate"><span class="pre">nne_estimate.m</span></code><a class="headerlink" href="#nne-estimate-m" title="Link to this heading">#</a></h3>
-<p>The main function to apply pNNE to your data.</p>
+<p>This is the main function that applies pre-trained NNE to your data.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">result = nne_estimate(nne, Y, Xp, Xa, Xc, consumer_idx, se=false, checks=true)</span>
 </pre></div>
 </div>
 <p>Inputs:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">nne</span></code>: as described before, from trained_nne.mat.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code>: nJ by 2 matrix.  Y(J*(i-1)+j, 1) indicates whether consumer i searched option j. Y(J*(i-1)+j, 2) indicates whether consumer i bought option j.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Xp</span></code>: nJ by p matrix. Xp(J*(i-1)+j, :) stores the product attributes of option j for consumer i.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Xa</span></code>: nJ by a matrix. Xa(J*(i-1)+j, :) stores the marketing attributes of option j for consumer i.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Xc</span></code>: n by c matrix. Xc(i, :) stores the consumer attributes of consumer i.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">consumer_idx</span></code>: nJ by 1 vector.  consumer_idx(J*(i-1)+1:J*i) = i.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">se=false</span></code>: optional input. Set to true to calculate bootstrap standard errors.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">checks=true</span></code>: optional input. Set to false to omit all sanity checks.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nne</span></code>: as described above, from <code class="docutils literal notranslate"><span class="pre">trained_nne.mat</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code>: <span class="math notranslate nohighlight">\(nJ\)</span> by 2 matrix. The <span class="math notranslate nohighlight">\(((i-1)J+j)\)</span>th row corresponds to product <span class="math notranslate nohighlight">\(j\)</span> for consumer <span class="math notranslate nohighlight">\(i\)</span>. The first value indicates if the product is searched. The second value indicates if the product is bought.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Xp</span></code>: a matrix with <span class="math notranslate nohighlight">\(nJ\)</span> rows. The <span class="math notranslate nohighlight">\(((i-1)J+j)\)</span>th row stores the product attributes of product <span class="math notranslate nohighlight">\(j\)</span> for consumer <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Xa</span></code>: a matrix with <span class="math notranslate nohighlight">\(nJ\)</span> rows. The <span class="math notranslate nohighlight">\(((i-1)J+j)\)</span>th row stores the advertising attributes of product <span class="math notranslate nohighlight">\(j\)</span> for consumer <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Xc</span></code>: a matrix with <span class="math notranslate nohighlight">\(n\)</span> rows. The <span class="math notranslate nohighlight">\(i\)</span>th row stores the consumer attributes of consumer <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">consumer_idx</span></code>: a column vector with <span class="math notranslate nohighlight">\(nJ\)</span> values. The <span class="math notranslate nohighlight">\(((i-1)J+j)\)</span>th value equals <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">se=false</span></code>: optional input. Set it to “true” to calculate bootstrap standard errors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">checks=true</span></code>: optional input. Set it to “false” to omit all sanity checks.</p></li>
 </ul>
 <p>Outputs:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">result</span></code>: a table listing parameters and their estimates. If se=false, it has an additional column of standard errors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">result</span></code>: a table showing parameter estimate and bootstrap standard errors (if <code class="docutils literal notranslate"><span class="pre">se=true</span></code>).</p></li>
 </ul>
 </section>
 <section id="moments-m">
 <h3><code class="docutils literal notranslate"><span class="pre">moments.m</span></code><a class="headerlink" href="#moments-m" title="Link to this heading">#</a></h3>
-<p>This function is used by nne_estimate.m. The function computes summary moments from data. These summary moments
-are then fed into the neural net as inputs.</p>
+<p>This function is used by <code class="docutils literal notranslate"><span class="pre">nne_estimate.m</span></code>. It computes moments from data. The moments include summary statistics as well as coefficients of reduced-form regressions. The moments are fed into the neural net as inputs.</p>
 </section>
-<section id="regress-coef-m">
-<h3><code class="docutils literal notranslate"><span class="pre">regress_coef.m</span></code><a class="headerlink" href="#regress-coef-m" title="Link to this heading">#</a></h3>
-<p>This function is used by moments.m. The function does ridge linear, logit, and multinomial logit regressions.
-These regressions are applied to the data to produce some of the summary moments.</p>
+<section id="reg-logit-m">
+<h3><code class="docutils literal notranslate"><span class="pre">reg_logit.m</span></code><a class="headerlink" href="#reg-logit-m" title="Link to this heading">#</a></h3>
+<p>This function is used by <code class="docutils literal notranslate"><span class="pre">moments.m</span></code>. It performs ridge logit regression or multinomial logit regression. It runs faster than Matlab built-in regression and significantly sped up pre-training. The faster execution is less important when applying the pre-trained NNE. Nevertheless, we use it when applying the pre-trained NNE.</p>
 </section>
-<section id="mselayer-m">
-<h3><code class="docutils literal notranslate"><span class="pre">mseLayer.m</span></code><a class="headerlink" href="#mselayer-m" title="Link to this heading">#</a></h3>
-<p>This function is a custom neural net layer used by our trained neural net. It is basically the same as
-Matlab’s built-in regressionLayer.m, except that it has some minor customization to better suit pNNE training.</p>
+<section id="reg-linear-m">
+<h3><code class="docutils literal notranslate"><span class="pre">reg_linear.m</span></code><a class="headerlink" href="#reg-linear-m" title="Link to this heading">#</a></h3>
+<p>This function is used by <code class="docutils literal notranslate"><span class="pre">moments.m</span></code>. It performs ridge linear regression.</p>
 </section>
 <section id="search-stat-m">
 <h3><code class="docutils literal notranslate"><span class="pre">search_stat.m</span></code><a class="headerlink" href="#search-stat-m" title="Link to this heading">#</a></h3>
-<p>This function calculates some summary statistics of the data. It is used by nne_estimate.m to perform
-a part of the data saneity checks.</p>
+<p>This function calculates some summary statistics of the data. It is used by <code class="docutils literal notranslate"><span class="pre">nne_estimate.m</span></code> to perform a part of the data saneity checks.</p>
+</section>
+<section id="winsorize-m">
+<h3><code class="docutils literal notranslate"><span class="pre">winsorize.m</span></code><a class="headerlink" href="#winsorize-m" title="Link to this heading">#</a></h3>
+<p>This function winsorizes the far outliers in data. We suggest applying it to your data before applying the pre-trained NNE. For example, Xp = winsorize(Xp).</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><span class="note-text">Note: The following files are not required in applying the pre-trained NNE. They are provided nevertheless for reference purposes.</span></p>
 </section>
 <section id="curve-mat">
 <h3><code class="docutils literal notranslate"><span class="pre">curve.mat</span></code><a class="headerlink" href="#curve-mat" title="Link to this heading">#</a></h3>
-<p>This file stores the relation describing how log search cost affects reservation utility.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">curve</span></code>: a table that stores a grid of log search cost and corresponding reservation utility.</p></li>
-</ul>
+<p>This file stores a lookup table for the relation between search cost and reservation utility. This relation is useful when we compute the optimal consumer choices under the sequential search model.</p>
 </section>
 <section id="search-model-m">
 <h3><code class="docutils literal notranslate"><span class="pre">search_model.m</span></code><a class="headerlink" href="#search-model-m" title="Link to this heading">#</a></h3>
-<p>The function that codes the search model. This function is used in training but not in estimation.
-We provide it for reference purpose. It is also useful if you want to conduct Monte Carlo experiments.</p>
+<p>This function codes the search model. The function is used in pre-training but not in application. We provide it for reference purpose. It is also useful if you want to conduct Monte Carlo experiments.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Y = search_model(par, curve, Xp, Xa, Xc, consumer_idx)</span>
 </pre></div>
 </div>
 <p>Inputs:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">par</span></code>: vector of parameter value. First a+1 entries are α. Next c+1 entries are η. Last p entries are β.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">curve</span></code>: as described before, from curve.mat.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Xp</span></code>, Xa, Xc, and consumer_idx: as described before.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">par</span></code>: vector of the parameter value for the search model.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curve</span></code>: as described above, from <code class="docutils literal notranslate"><span class="pre">curve.mat</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_idx</span></code>: data formatted as described before.</p></li>
 </ul>
 <p>Outputs</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code>: as described above. Simulated search and purchase choices.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code>: a matrix with the simulated search and purchase choices, formatted as described before.</p></li>
 </ul>
 </section>
 </section>

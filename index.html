@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Welcome to pNNE &#8212; pNNE  documentation</title>
+    <title>Welcome to Pre-trained NNE &#8212; pNNE  documentation</title>
   
   
   
@@ -32,7 +32,7 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=15771bbd" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=17a44345" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Welcome to pNNE" href="home/home.html" />
+    <link rel="next" title="&lt;no title&gt;" href="home/home.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -128,7 +128,7 @@
     <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
-    <p class="title logo__title">pNNE</p>
+    <p class="title logo__title">pre-trained NNE</p>
   
 </a></div>
     
@@ -157,6 +157,13 @@
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="code/code.html">
                          Code
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="data/data.html">
+                         Data
                       </a>
                     </li>
                 
@@ -234,6 +241,13 @@ document.write(`
                 
 
                     <li class="nav-item">
+                      <a class="nav-link nav-internal" href="data/data.html">
+                         Data
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link nav-internal" href="contact/contact.html">
                          Contact
                       </a>
@@ -290,24 +304,25 @@ document.write(`
 </div>
 <div class="toctree-wrapper compound">
 </div>
-<section id="welcome-to-pnne">
-<h1>Welcome to pNNE<a class="headerlink" href="#welcome-to-pnne" title="Link to this heading">#</a></h1>
-<p>This website provides a pre-trained estimator for consumer search model.</p>
-<p>The estimator is built as pNNE (pre-trained neural net estimator). The idea is to allocate the bulk of work to pre-training. So an end user can estimate the structural econometric model as easy as a reduced-form model.</p>
-<p>Below is a brief overview how to apply pNNE to your search data. For Matlab code and description, go to <a class="reference internal" href="code/code.html#code"><span class="std std-ref">code</span></a> page.</p>
+<section id="welcome-to-pre-trained-nne">
+<h1>Welcome to Pre-trained NNE<a class="headerlink" href="#welcome-to-pre-trained-nne" title="Link to this heading">#</a></h1>
+<p>(<span class="note-text">Note: This website is still under construction. Last update on May 20, 2024.</span>)</p>
+<p>This is the companion website for Wei and Jiang (2024b) (see <a class="reference internal" href="#papers">papers</a>). The website provides a pre-trained estimator for a consumer search model used in economics &amp; marketing. The idea is to allocate the bulk of work to pre-training. So an end user can estimate a structural econometric model as easy as a reduced-form model.</p>
+<p>The estimator is based on a neural net that recognizes structural parameters from data patterns. We call it pre-trained neural net estimator (NNE). The approach extends Wei and Jiang (2024a) (see <a class="reference internal" href="#papers">papers</a>) and it is generally applicable to many structural models. But here we focus on a consumer search model.</p>
+<p>Below is a brief overview of applying pre-trained NNE to your search data. For Matlab code and documentation, see <a class="reference internal" href="code/code.html#code"><span class="std std-ref">code</span></a> page.</p>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>The main function to execute estimation is <code class="docutils literal notranslate"><span class="pre">nne_estimate.m</span></code>, as shown below.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">result = nne_estimate(nne, Y, Xp, Xa, Xc, consumer_idx)</span>
 </pre></div>
 </div>
-<p>The inputs and output:</p>
+<p>Explanation for inputs and output:</p>
 <ul class="simple">
 <li><p>Input <code class="docutils literal notranslate"><span class="pre">nne</span></code> stores the trained neural net and some pre-defined settings, available from the file <code class="docutils literal notranslate"><span class="pre">trained_nne.mat</span></code>;</p></li>
-<li><p>Inputs <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code> store your data.</p></li>
-<li><p>Output <code class="docutils literal notranslate"><span class="pre">result</span></code> is a table storing the parameter estimate of a standard consumer search model.</p></li>
+<li><p>Inputs <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code> store your data (more on them below).</p></li>
+<li><p>Output <code class="docutils literal notranslate"><span class="pre">result</span></code> is a table storing the parameter estimate for the search model.</p></li>
 </ul>
-<p>Below shows an example. The total execution time is 0.78 sec on a laptop, including overheads such as some data sanity checks.</p>
+<p>Below shows an example. The total execution time is 0.78 sec on a laptop. The time includes overheads such as some data sanity checks.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;  load(&#39;trained_nne.mat&#39;, &#39;nne&#39;)</span>
 <span class="go">&gt;&gt;  tic</span>
 <span class="go">result = nne_estimate(nne, Y, Xp, Xa, Xc, consumer_idx);</span>
@@ -330,65 +345,87 @@ document.write(`
 <p>The rest of this page gives more details on the search model, how to format your data, and how to get standard errors.</p>
 <section id="the-search-model">
 <h3>1) The search model<a class="headerlink" href="#the-search-model" title="Link to this heading">#</a></h3>
-<p>The econometric model to be estimated is a standard sequential search model. Each consumer faces J products (or options). She decides which options to search and which option to buy. Searching a product incurs a search cost but also reveals some utility for the product.</p>
-<p>A typical setting for the model is consumer search online, where a “consumer” is a “search session.” A consumer is shown a list of products. Clicking a product for more information is a search. After searching, the consumer may buy one product or an outside good. The list page usually shows some product attributes (e.g., review rating) that affect consumer utility for products. In addition, there may be some consumer attributes (e.g., past spending, visit time) that affect consumer outside utility. There may also be advertising attributes (e.g., ranking in the list) that affect search costs.</p>
-<p>There are three sets of parameters: <span class="math notranslate nohighlight">\(\beta\)</span> describes how product attributes affect utility,  <span class="math notranslate nohighlight">\(\eta\)</span> describes how consumer attributes affect outside utility, and <span class="math notranslate nohighlight">\(\alpha\)</span> describes how advertising attributes affect search costs.</p>
-<p>A free search is endowed, to accommodate most data where consumer searches at least once.</p>
+<p>Sequential search models have been commonly applied in economics and marketing. Each consumer faces <span class="math notranslate nohighlight">\(J\)</span> products (or options). She decides which options to search and which option to buy. Searching a product incurs a search cost but also reveals some utility for that product.  The search model estimated by the pre-trained NNE here is a standard one. The exact specification of it is given in Wei and Jiang (2024b) (see <a class="reference internal" href="#papers">papers</a>). Here we give a high-level description.</p>
+<ul class="simple">
+<li><p>A consumer searches and chooses among a list of products, plus an outside good. A free search is endowed, because in most data each consumer searches at least once.</p></li>
+<li><p>The list shows some <strong>product attributes</strong> that affect consumer’s utility for products. How each product attribute affects utility is described by coefficients <span class="math notranslate nohighlight">\(\beta\)</span>.</p></li>
+<li><p>There may be some <strong>consumer attributes</strong> that affect consumer’s outside utility. How each consumer attribute affects outside utility is described by coefficients <span class="math notranslate nohighlight">\(\eta\)</span>.</p></li>
+<li><p>There may also be <strong>advertising attributes</strong> (e.g., ranking in the list) that affect search costs. How each advertising attribute affects search cost is described by coefficients <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
+</ul>
+<p>For a survey on empirical applications of search models, see Ursu, Steiler, &amp; Honka (2022) (see <a class="reference internal" href="#papers">papers</a>). Optimal search behavior was studied in Weitzman (1979) (see <a class="reference internal" href="#papers">papers</a>).</p>
 </section>
 <section id="data-format">
 <h3>2) Data format<a class="headerlink" href="#data-format" title="Link to this heading">#</a></h3>
-<p>Organize data into five arrays: <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code>. Respectively: <code class="docutils literal notranslate"><span class="pre">Xp</span></code> stores product attributes; <code class="docutils literal notranslate"><span class="pre">Xa</span></code> stores advertising attributes; and <code class="docutils literal notranslate"><span class="pre">Xc</span></code> stores consumer attributes; <code class="docutils literal notranslate"><span class="pre">Y</span></code> stores search and purchase outcomes; <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code> identifies consumers.</p>
-<p>In the example below, there are n=10,000 consumers (or search sessions) and each consumer has J=20 options for search. There are 2 product attributes, 1 advertising attribute, and 3 consumer attributes.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;  whos Xp Xa Xc Y consumer_idx</span>
-
-<span class="go">    Name               Size             Bytes         Class      Attributes</span>
-
-<span class="go">    Xa                200000x1         1600000        double</span>
-<span class="go">    Xc                 10000x3          240000        double</span>
-<span class="go">    Xp                200000x2         3200000        double</span>
-<span class="go">    consumer_idx      200000x1         1600000        double</span>
-<span class="go">    Y                 200000x2         3200000        double</span>
-</pre></div>
-</div>
-<p>Below previews the first rows of  <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code>. Variable <code class="docutils literal notranslate"><span class="pre">Y</span></code> has two columns; the 1st column indicates search and 2nd column indicates purchase. We see that the first consumer searched option 1, 3, 4, and 8. She bought option 3.</p>
+<p>To use the pre-trained NNE, organize data into five arrays: <code class="docutils literal notranslate"><span class="pre">Y</span></code>, <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code>. Respectively, they store search &amp; purchase outcomes, product attributes, advertising attributes, consumer attributes, and consumer identifiers.</p>
+<p>Below, we illustrate with an example of shopping on an online retailer. There are <span class="math notranslate nohighlight">\(n\)</span> = 10,000 consumers and <span class="math notranslate nohighlight">\(J\)</span> = 15 options per consumer. Below previews the first rows of  <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, and <code class="docutils literal notranslate"><span class="pre">Xa</span></code>. We see:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">consumer_idx</span></code> is <span class="math notranslate nohighlight">\(nJ\)</span> by 1. Each row indicates the consumer (or search session).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span></code> has two columns; the 1st column indicates search and 2nd column indicates purchase. In this example, we see the first consumer searched the 1st, 3rd, and 8th options. She bought the 3rd option.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Xp</span></code> stores product attributes. In this example, there are two product attributes: a 1-5 product rating and log price.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Xa</span></code> stores advertising attributes. In this example, there is one advertising attribute: whether the product is highlighted on the retailer website.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Xc</span></code> stores consumer attributes. It is not displayed below. It has only <span class="math notranslate nohighlight">\(n\)</span> rows, one for each consumer.</p></li>
+</ul>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;  table(consumer_idx, Y, Xp, Xa)</span>
-<span class="go">ans = 200000×4 table</span>
+<span class="go">ans = 150000×4 table</span>
 <span class="go"> consumer_idx      Y             Xp          Xa</span>
 <span class="go"> ____________    ______    ______________    __</span>
-<span class="go">        1        1    0    4      0.67743    0</span>
-<span class="go">        1        0    0    5       1.1052    0</span>
-<span class="go">        1        1    1    1     -0.24542    0</span>
-<span class="go">        1        1    0    5      0.78452    0</span>
+<span class="go">        1        1    0    4      0.67743    1</span>
+<span class="go">        1        0    0    5       1.1052    1</span>
+<span class="go">        1        1    1    1     -0.24542    1</span>
+<span class="go">        1        0    0    5      0.78452    0</span>
 <span class="go">        1        0    0    4      0.10519    0</span>
 <span class="go">        1        0    0    5     0.068463    0</span>
-<span class="go">        1        0    0    4      0.35691    1</span>
+<span class="go">        1        0    0    4      0.35691    0</span>
 <span class="go">        1        1    0    5      0.61307    0</span>
-<span class="go">        1        0    0    3       1.1809    1</span>
+<span class="go">        1        0    0    3       1.1809    0</span>
 <span class="go">        1        0    0    5      0.91391    0</span>
 <span class="go">        1        0    0    5     0.054537    0</span>
 <span class="go">        1        0    0    3       1.0015    0</span>
 <span class="go">        1        0    0    5      0.73938    0</span>
 <span class="go">        1        0    0    3    -0.020808    0</span>
 <span class="go">        1        0    0    5      0.23587    0</span>
-<span class="go">        1        0    0    5      0.43236    1</span>
-<span class="go">        1        0    0    5    -0.040968    0</span>
-<span class="go">        1        0    0    5       0.4916    0</span>
-<span class="go">        1        0    0    2      0.96498    0</span>
-<span class="go">        1        0    0    2      0.46767    0</span>
-<span class="go">        2        1    0    3      0.72159    1</span>
-<span class="go">        2        0    0    5     -0.39847    0</span>
+<span class="go">        2        0    0    3      0.72159    1</span>
+<span class="go">        2        1    0    5     -0.39847    1</span>
 <span class="go">        2        0    0    5      0.73669    1</span>
 <span class="go">      :            :             :           :</span>
 </pre></div>
 </div>
-<p>Consumer attributes <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, not displayed here, should have the same number of rows as the number of consumers (10,000 in this example).</p>
-<p>If data did not feature advertising attributes, we’d let <code class="docutils literal notranslate"><span class="pre">Xa</span></code> be 200,000 by 0 (no columns). If data did not feature consumer attributes, we’d let <code class="docutils literal notranslate"><span class="pre">Xc</span></code> be 10,000 by 0.</p>
+<p>Below show the dimensions of each variable. If your data did not feature advertising or consumer attributes, you can let <code class="docutils literal notranslate"><span class="pre">Xa</span></code> or <code class="docutils literal notranslate"><span class="pre">Xc</span></code> be an empty matrix.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;  whos Xp Xa Xc Y consumer_idx</span>
+
+<span class="go">    Name               Size             Bytes         Class      Attributes</span>
+
+<span class="go">    Xa                150000x1         1200000        double</span>
+<span class="go">    Xc                 10000x3          240000        double</span>
+<span class="go">    Xp                150000x2         2400000        double</span>
+<span class="go">    consumer_idx      150000x1         1200000        double</span>
+<span class="go">    Y                 150000x2         2400000        double</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-results">
+<h3>3) Reading results<a class="headerlink" href="#reading-results" title="Link to this heading">#</a></h3>
+<p>Below reproduces the parameter estimate shown earlier (in <a class="reference internal" href="#overview">Overview</a>). We see <span class="math notranslate nohighlight">\(\alpha_1\)</span> is negative, indicating that the products highlighted by the retailer enjoy a lower search cost (so they are more likely to be searched). We see <span class="math notranslate nohighlight">\(\beta_1\)</span> is positive, indicating that consumer utility increases with product rating. We see <span class="math notranslate nohighlight">\(\eta_1\)</span> is negative, indicating that the outside utility decreases with the first consumer attribute.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt; load(&#39;trained_nne.mat&#39;, &#39;nne&#39;)</span>
+<span class="go">&gt;&gt; result = nne_estimate(nne, Y, Xp, Xa, Xc, consumer_idx)</span>
+<span class="go">result = 8×2 table</span>
+<span class="go">    name           val</span>
+<span class="go"> ----------      -------</span>
+<span class="go"> &quot;\alpha_0&quot;      -6.4546</span>
+<span class="go"> &quot;\alpha_1&quot;     -0.11333</span>
+<span class="go"> &quot;\eta_0&quot;          5.929</span>
+<span class="go"> &quot;\eta_1&quot;      -0.048687</span>
+<span class="go"> &quot;\eta_2&quot;        0.22004</span>
+<span class="go"> &quot;\eta_3&quot;       0.052894</span>
+<span class="go"> &quot;\beta_1&quot;       0.25836</span>
+<span class="go"> &quot;\beta_2&quot;      -0.53811</span>
+</pre></div>
+</div>
 </section>
 <section id="bootstrap-standard-errors">
-<h3>3) Bootstrap standard errors<a class="headerlink" href="#bootstrap-standard-errors" title="Link to this heading">#</a></h3>
-<p>The nne_estimate function has standard error calculation built in. Simply add <code class="docutils literal notranslate"><span class="pre">&quot;se</span> <span class="pre">=</span> <span class="pre">true&quot;</span></code> option as shown below. The output will include an additional column of standard errors. The calculation bootstraps 50 samples so execution time will be longer, but it can take advantage of parallel computing toolbox if installed.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt; result = nne_estimate(nne, Y, Xp, Xa, Xc, consumer_idx, se = true);</span>
-<span class="go">&gt;&gt; result</span>
+<h3>4) Bootstrap standard errors<a class="headerlink" href="#bootstrap-standard-errors" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">nne_estimate.m</span></code> function has standard error calculation built in. Simply add <code class="docutils literal notranslate"><span class="pre">&quot;se</span> <span class="pre">=</span> <span class="pre">true&quot;</span></code> option as shown below. The output will include an additional column of standard errors. The calculation bootstraps 50 samples so execution time will be somewhat longer, but it can take advantage of parallel computing toolbox if installed.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt; result = nne_estimate(nne, Y, Xp, Xa, Xc, consumer_idx, se = true)</span>
 <span class="go">result = 8×3 table</span>
 
 <span class="go">   name          val          se</span>
@@ -403,7 +440,32 @@ document.write(`
 <span class="go">&quot;\beta_2&quot;      -0.53811    0.011032</span>
 </pre></div>
 </div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </section>
+</section>
+<section id="papers">
+<h2>Papers<a class="headerlink" href="#papers" title="Link to this heading">#</a></h2>
+<p>Wei, Yanhao ‘Max’ and Zhenling Jiang (2024a), “Estimating Parameters of Structural Models with Neural Networks,” Accepted at Marketing Science.</p>
+<p>Wei, Yanhao ‘Max’ and Zhenling Jiang (2024b), “A Pre-trained Estimator for Consumer Search Models.”</p>
+<p>Weitzman, Martin L. (1979): “Optimal Search for the Best Alternative,” Econometrica.</p>
+<p>Ursu, Raluca, Stephan Steiler, and Elisabeth Honka (2022), “The Sequential Search Model: A Framework for Empirical Research.”</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </section>
 </section>
 
