@@ -7,7 +7,7 @@
 Data
 ============
 
-We share four sample datasets on which one can apply the pre-trained NNE.  You can find them in Matlab formats at `GitHub directory <https://github.com/pnnehome/code_matlab>`_. These datasets are used in Wei and Jiang (2024b) (see `papers`_) and come from sources with direct public access. More detailed descriptions of these datasets can be found in the paper too.
+We share four sample datasets on which one can apply the pre-trained NNE.  You can find them in Matlab formats at `GitHub directory <https://github.com/pnnehome/code_matlab>`_. These datasets are used in :ref:`Wei and Jiang (2024b) <papers_data>` and come from sources with direct public access. More detailed descriptions of these datasets can be found in the paper too.
 
 
 Information of the datasets
@@ -37,6 +37,8 @@ This dataset consists of the search sessions made on the mobile channel from the
 |
 
 |
+
+.. _papers_data:
 
 Papers
 ---------------
