@@ -4,43 +4,48 @@
 
 .. _code:
 
-Code
+Code 
 ============
 
-You can find the Matlab (R2023b) files in this `GitHub directory <https://github.com/pnnehome/code_matlab>`_ (still in beta version).
+You can find the Matlab (R2024a) files in this `GitHub directory <https://github.com/pnnehome/code_matlab>`_ (still in beta version).
 
-Below are documentation for the files. We suggest you first read the example in :ref:`home <home>`, which is an easier way to get an idea of how the code works.
+Below are documentation for the files. However, we suggest first reading the example in :ref:`home <home>`, which is an easier way to get an idea of how the code works.
 
 Range of data accepted:
-----------------------------
+'''''''''''''''''''''''''
 
-Current settings on the range of data accepted by pNNE:
+.. role:: note-text
 
-\*Current settings are relatively restrictive as pNNE is still in beta stage. We can change these settings in the next version of pNNE if there are requests to do so. Please contact us if you want to see a setting broadened.
+Below list the current settings on the data dimensions accepted by pre-trained NNE. (:note-text:`Note\: current settings are relatively restrictive as pre-trained NNE is still in beta stage. We can change these settings in the next version of pre-trained NNE if there are requests. Please feel free to contact us.`)
 
-.. role:: brown-text
+- **Sample size**: :math:`n` ≥ 1000 consumers (or search sessions).
+- **Number of options**: 15 ≤ :math:`J` ≤ 35.
+- Number of **product attributes** is between 2 and 8. 
+- Number of **consumer attributes** is between 0 and 5. 
+- Number of **advertising attributes** is between 0 and 2.
 
-- :brown-text:`Sample size`: n ≥ 1000 number of consumers (or search sessions).
-- :brown-text:`Number of options` per consumer: 15 ≤ J ≤ 35.
-- Numbers of :brown-text:`product attributes`, :brown-text:`consumer attributes`, and :brown-text:`advertising attributes`: 2 ≤ p ≤ 8, 0 ≤ c ≤ 5, and 0 ≤ a ≤ 2. 
-- :brown-text:`Buy rate` (fraction of consumers who bought inside good) is between 0.5% and 70%.
-- :brown-text:`Search rate` (fraction of consumers who went beyond free search) is between 1% and 80%.
-- :brown-text:`Average number of searches` per consumer is between 1 and 5.
+In addition, the NNE is pre-trained on data with following characteristics. If your data's characterstics fall outside these ranges, the pre-trained NNE may not work as intended.
 
-Description of code files
-----------------------------
+- **Buy rate** (fraction of consumers who bought inside good) is between 0.5% and 70%. 
+- **Search rate** (fraction of consumers who went beyond free search) is between 1% and 80%. 
+- **Average number of searches** per consumer is between 1 and 5.
+
+Description of files 
+'''''''''''''''''''''''
+
 
 ``trained_nne.mat``
 """"""""""""""""""""""""
 
-This file stores the trained neural net as well as some settings.
+This file stores the trained neural net as well as pre-defined settings.
 
-- ``nne``: a structure that stores the trained neural net, as well as some settings used in training, such as the largest number of product attributes allowed, the smallest sample size allowed, the range of search model parameters considered, etc.
+- ``nne``: a structure that stores the trained neural net, as well as some settings used in training, such as the smallest sample size, the range on the number of product attributes, the prior of search model parameters, etc.
+
 
 ``nne_estimate.m`` 
 """"""""""""""""""""""""
 
-The main function to apply pNNE to your data.
+This is the main function that applies pre-trained NNE to your data.
 
 .. code-block:: console
 
@@ -48,55 +53,58 @@ The main function to apply pNNE to your data.
 
 Inputs:
 
-- ``nne``: as described before, from trained_nne.mat.
-- ``Y``: nJ by 2 matrix.  Y(J*(i-1)+j, 1) indicates whether consumer i searched option j. Y(J*(i-1)+j, 2) indicates whether consumer i bought option j.
-- ``Xp``: nJ by p matrix. Xp(J*(i-1)+j, :) stores the product attributes of option j for consumer i.
-- ``Xa``: nJ by a matrix. Xa(J*(i-1)+j, :) stores the marketing attributes of option j for consumer i.
-- ``Xc``: n by c matrix. Xc(i, :) stores the consumer attributes of consumer i.
-- ``consumer_idx``: nJ by 1 vector.  consumer_idx(J*(i-1)+1:J*i) = i.
-- ``se=false``: optional input. Set to true to calculate bootstrap standard errors.
-- ``checks=true``: optional input. Set to false to omit all sanity checks.
+- ``nne``: as described above, from ``trained_nne.mat``.
+- ``Y``: :math:`nJ` by 2 matrix. The :math:`((i-1)J+j)`\th row corresponds to product :math:`j` for consumer :math:`i`. The first value indicates if the product is searched. The second value indicates if the product is bought.
+- ``Xp``: a matrix with :math:`nJ` rows. The :math:`((i-1)J+j)`\th row stores the product attributes of product :math:`j` for consumer :math:`i`.
+- ``Xa``: a matrix with :math:`nJ` rows. The :math:`((i-1)J+j)`\th row stores the advertising attributes of product :math:`j` for consumer :math:`i`.
+- ``Xc``: a matrix with :math:`n` rows. The :math:`i`\th row stores the consumer attributes of consumer :math:`i`.
+- ``consumer_idx``: a column vector with :math:`nJ` values. The :math:`((i-1)J+j)`\th value equals :math:`i`.
+- ``se=false``: optional input. Set it to "true" to calculate bootstrap standard errors.
+- ``checks=true``: optional input. Set it to "false" to omit all sanity checks.
 
 Outputs:
 
-- ``result``: a table listing parameters and their estimates. If se=false, it has an additional column of standard errors.
+- ``result``: a table showing parameter estimate and bootstrap standard errors (if ``se=true``).
+
 
 ``moments.m`` 
 """"""""""""""""""""""""
+This function is used by ``nne_estimate.m``. It computes moments from data. The moments include summary statistics as well as coefficients of reduced-form regressions. The moments are fed into the neural net as inputs.
 
-This function is used by nne_estimate.m. The function computes summary moments from data. These summary moments 
-are then fed into the neural net as inputs.
 
-``regress_coef.m`` 
+``reg_logit.m`` 
 """"""""""""""""""""""""
+This function is used by ``moments.m``. It performs ridge logit regression or multinomial logit regression. It runs faster than Matlab built-in regression and significantly sped up pre-training. The faster execution is less important when applying the pre-trained NNE. Nevertheless, we use it when applying the pre-trained NNE.
 
-This function is used by moments.m. The function does ridge linear, logit, and multinomial logit regressions. 
-These regressions are applied to the data to produce some of the summary moments.
 
-``mseLayer.m`` 
+``reg_linear.m`` 
 """"""""""""""""""""""""
+This function is used by ``moments.m``. It performs ridge linear regression. 
 
-This function is a custom neural net layer used by our trained neural net. It is basically the same as 
-Matlab's built-in regressionLayer.m, except that it has some minor customization to better suit pNNE training.
 
 ``search_stat.m`` 
 """"""""""""""""""""""""
+This function calculates some summary statistics of the data. It is used by ``nne_estimate.m`` to perform a part of the data saneity checks.
 
-This function calculates some summary statistics of the data. It is used by nne_estimate.m to perform 
-a part of the data saneity checks.
 
-``curve.mat`` 
+``winsorize.m`` 
 """"""""""""""""""""""""
+This function winsorizes the far outliers in data. We suggest applying it to your data before applying the pre-trained NNE. For example, Xp = winsorize(Xp).
 
-This file stores the relation describing how log search cost affects reservation utility.
 
-- ``curve``: a table that stores a grid of log search cost and corresponding reservation utility.
+|
+
+:note-text:`Note\: The following files are not required in applying the pre-trained NNE. They are provided nevertheless for reference purposes.`
+
+``curve.mat``
+""""""""""""""""""""""""
+This file stores a lookup table for the relation between search cost and reservation utility. This relation is useful when we compute the optimal consumer choices under the sequential search model.
+
 
 ``search_model.m``
 """"""""""""""""""""""""
 
-The function that codes the search model. This function is used in training but not in estimation. 
-We provide it for reference purpose. It is also useful if you want to conduct Monte Carlo experiments.
+This function codes the search model. The function is used in pre-training but not in application. We provide it for reference purpose. It is also useful if you want to conduct Monte Carlo experiments.
 
 .. code-block:: console
 
@@ -104,11 +112,11 @@ We provide it for reference purpose. It is also useful if you want to conduct Mo
 
 Inputs:
 
-- ``par``: vector of parameter value. First a+1 entries are α. Next c+1 entries are η. Last p entries are β.
-- ``curve``: as described before, from curve.mat.
-- ``Xp``, Xa, Xc, and consumer_idx: as described before.
+- ``par``: vector of the parameter value for the search model.
+- ``curve``: as described above, from ``curve.mat``.
+- ``Xp``, ``Xa``, ``Xc``, and ``consumer_idx``: data formatted as described before.
 
 Outputs
 
-- ``Y``: as described above. Simulated search and purchase choices.
+- ``Y``: a matrix with the simulated search and purchase choices, formatted as described before.
 
