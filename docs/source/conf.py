@@ -41,7 +41,7 @@ html_theme_options = {
     "navbar_persistent":[],
     "logo": {
         "link": "https://pnnehome.github.io",
-        "text": "pNNE"
+        "text": "pre-trained NNE"
     },
     "show_prev_next": False
 }

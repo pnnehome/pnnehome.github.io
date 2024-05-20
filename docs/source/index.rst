@@ -13,10 +13,15 @@
 
     Home <home/home>
     Code <code/code>
+    Data <data/data>
     Contact <contact/contact>
 
 Welcome to Pre-trained NNE
 ==========================
+
+.. role:: note-text
+
+(:note-text:`Note\: This website is still under construction. Last update on May 20, 2024.`)
 
 This is the companion website for Wei and Jiang (2024b) (see `papers`_). The website provides a pre-trained estimator for a consumer search model used in economics & marketing. The idea is to allocate the bulk of work to pre-training. So an end user can estimate a structural econometric model as easy as a reduced-form model.
 
