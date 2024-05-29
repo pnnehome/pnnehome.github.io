@@ -168,7 +168,7 @@ Wei, Yanhao 'Max' and Zhenling Jiang (2024a), "Estimating Parameters of Structur
 
 Wei, Yanhao 'Max' and Zhenling Jiang (2024b), "A Pre-trained Estimator for Consumer Search Models."
 
-Ursu, Raluca, Stephan Steiler, and Elisabeth Honka (2022), "The Sequential Search Model: A Framework for Empirical Research." 
+Ursu, Raluca, Stephan Seiler, and Elisabeth Honka (2022), "The Sequential Search Model: A Framework for Empirical Research." 
 
 |
 
