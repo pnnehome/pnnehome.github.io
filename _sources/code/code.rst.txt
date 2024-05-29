@@ -82,14 +82,14 @@ This function is used by ``moments.m``. It performs ridge logit regression or ri
 This function is used by ``moments.m``. It performs ridge linear regression. 
 
 
-``search_stat.m`` 
+``data_checks.m`` 
 """"""""""""""""""""""""
-This function calculates some summary statistics of the data. It is used by ``nne_estimate.m`` to perform a part of the data saneity checks.
+This function is used by ``nne_estimate.m`` to run some basic sanity checks on data. For example, did every consumer buy at most one option; did every consumer conduct the free search?
 
 
 ``winsorize.m`` 
 """"""""""""""""""""""""
-This function winsorizes the far outliers in data. We suggest applying it to your data before applying the pre-trained NNE. For example, Xp = winsorize(Xp).
+This function winsorizes data at 0.5 and 99.5 percentiles. We suggest applying it to your data before applying the pre-trained NNE. For example, Xp = winsorize(Xp).
 
 |
 

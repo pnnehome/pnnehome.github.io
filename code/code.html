@@ -390,13 +390,13 @@ document.write(`
 <h3><code class="docutils literal notranslate"><span class="pre">reg_linear.m</span></code><a class="headerlink" href="#reg-linear-m" title="Link to this heading">#</a></h3>
 <p>This function is used by <code class="docutils literal notranslate"><span class="pre">moments.m</span></code>. It performs ridge linear regression.</p>
 </section>
-<section id="search-stat-m">
-<h3><code class="docutils literal notranslate"><span class="pre">search_stat.m</span></code><a class="headerlink" href="#search-stat-m" title="Link to this heading">#</a></h3>
-<p>This function calculates some summary statistics of the data. It is used by <code class="docutils literal notranslate"><span class="pre">nne_estimate.m</span></code> to perform a part of the data saneity checks.</p>
+<section id="data-checks-m">
+<h3><code class="docutils literal notranslate"><span class="pre">data_checks.m</span></code><a class="headerlink" href="#data-checks-m" title="Link to this heading">#</a></h3>
+<p>This function is used by <code class="docutils literal notranslate"><span class="pre">nne_estimate.m</span></code> to run some basic sanity checks on data. For example, did every consumer buy at most one option; did every consumer conduct the free search?</p>
 </section>
 <section id="winsorize-m">
 <h3><code class="docutils literal notranslate"><span class="pre">winsorize.m</span></code><a class="headerlink" href="#winsorize-m" title="Link to this heading">#</a></h3>
-<p>This function winsorizes the far outliers in data. We suggest applying it to your data before applying the pre-trained NNE. For example, Xp = winsorize(Xp).</p>
+<p>This function winsorizes data at 0.5 and 99.5 percentiles. We suggest applying it to your data before applying the pre-trained NNE. For example, Xp = winsorize(Xp).</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
