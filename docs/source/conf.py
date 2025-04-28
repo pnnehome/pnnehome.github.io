@@ -36,6 +36,9 @@ html_css_files = [
 ]
 html_logo = '_static/logo.png'
 
+html_sidebars = {
+  "**": []
+}
 
 html_theme_options = {
     "navbar_persistent":[],

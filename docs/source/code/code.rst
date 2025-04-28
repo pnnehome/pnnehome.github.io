@@ -16,14 +16,14 @@ Range of data accepted:
 
 .. role:: note-text
 
-Below list the current settings on the data dimensions accepted by the main file ``nne_estimate.m``. (:note-text:`Note\: current settings are relatively restrictive as pre-trained NNE is still in beta stage. We can change these settings in the next version of pre-trained NNE if there are requests. Please feel free to contact us.`)
+Below list the current settings on the data dimensions accepted by the main file ``nne_estimate.m``. (:note-text:`Note\: current settings are relatively restrictive as pretrained NNE is still in beta stage. We can change these settings in the next version of pretrained NNE if there are requests. Please feel free to contact us.`)
 
 - **Sample size**: :math:`n` ≥ 1000 consumers (or search sessions). **Number of options**: 15 ≤ :math:`J` ≤ 35.
 - Number of **product attributes** is ≥ 2 and ≤ 8. 
 - Number of **consumer attributes** is ≤ 5. 
 - Number of **advertising attributes** is ≤ 2.
 
-In addition, the NNE is pre-trained on data with following characteristics. If your data's characterstics fall outside these ranges, the pre-trained NNE may not work as intended.
+In addition, the NNE is pretrained on data with following characteristics. If your data's characteristics fall outside these ranges, the pretrained NNE may not work as intended.
 
 - **Buy rate** (fraction of consumers who bought inside good) is 0.5% ~ 70%. 
 - **Search rate** (fraction of consumers who went beyond free search) is 1% ~ 80%. 
@@ -74,7 +74,7 @@ This function is used by ``nne_estimate.m``. It computes moments from data. The 
 
 ``reg_logit.m`` 
 """"""""""""""""""""""""
-This function is used by ``moments.m``. It performs ridge logit regression or ridge multinomial-logit regression. It runs faster than Matlab built-in regressions and significantly sped up pre-training. The faster execution is less important when applying the pre-trained NNE. Nevertheless, we make use of it when applying the pre-trained NNE.
+This function is used by ``moments.m``. It performs ridge logit regression or ridge multinomial-logit regression. It runs faster than Matlab built-in regressions and significantly sped up pretraining. The faster execution is less important when applying the pretrained NNE. Nevertheless, we make use of it when applying the pretrained NNE.
 
 
 ``reg_linear.m`` 
@@ -86,14 +86,14 @@ This function is used by ``moments.m``. It performs ridge linear regression.
 """"""""""""""""""""""""
 This function is used by ``nne_estimate.m`` to run some basic sanity checks on data. For example, did every consumer buy at most one option; did every consumer conduct the free search?
 
+|
+
+:note-text:`Note\: The following files are not required in applying the pretrained NNE. They are provided nevertheless for reference purposes.`
 
 ``winsorize.m`` 
 """"""""""""""""""""""""
-This function winsorizes data at 0.5 and 99.5 percentiles. We suggest applying it to your data before applying the pre-trained NNE. For example, Xp = winsorize(Xp).
+This function winsorizes data at 0.5 and 99.5 percentiles. We suggest applying it to your data before applying the pretrained NNE. For example, Xp = winsorize(Xp).
 
-|
-
-:note-text:`Note\: The following files are not required in applying the pre-trained NNE. They are provided nevertheless for reference purposes.`
 
 ``curve.mat``
 """"""""""""""""""""""""
@@ -103,7 +103,7 @@ This file stores a lookup table for the relation between search cost and reserva
 ``search_model.m``
 """"""""""""""""""""""""
 
-This function codes the search model. The function is used in pre-training but not in application. We provide it for reference purpose. It is also useful if you want to conduct Monte Carlo experiments.
+This function codes the search model. The function is used in pretraining but not in application. We provide it for reference purpose. It is also useful if you want to conduct Monte Carlo experiments.
 
 .. code-block:: console
 

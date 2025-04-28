@@ -21,11 +21,11 @@ Welcome to Pre-trained NNE
 
 .. role:: note-text
 
-(:note-text:`Note\: This website is still under construction. Last update on May 20, 2024.`)
+(:note-text:`Note\: This website is still under construction. Last update on Apr 28, 2025.`)
 
-This is the companion website for :ref:`Wei and Jiang (2024b) <papers_home>`. It provides a pre-trained estimator for a consumer search model used in economics & marketing. It is based on a neural net that recognizes search model parameters from data patterns. We call it pre-trained neural net estimator (NNE). The approach extends :ref:`Wei and Jiang (2024a) <papers_home>` and is generally applicable to structural models. But here we focus on a consumer search model.
+This is the companion website for :ref:`Wei and Jiang (2025) <papers_home>`. It provides a pretrained estimator for a consumer search model used in economics & marketing. It is based on a neural net that recognizes search model parameters from data patterns. We call it pretrained neural net estimator (NNE). The approach extends :ref:`Wei and Jiang (2024) <papers_home>` and is generally applicable to structural models. But here we focus on a consumer search model.
 
-Below is a brief overview of applying pre-trained NNE to your search data. For Matlab code and documentation, see :ref:`code <code>` page. For examples to try out, see :ref:`data <data>` page.
+Below is a brief overview of applying pretrained NNE to your search data. For Matlab code and documentation, see :ref:`code <code>` page. For examples to try out, see :ref:`data <data>` page.
 
 Overview
 ------------------
@@ -69,7 +69,7 @@ The rest of this page gives more details on the search model, how to format your
 
 1) The search model
 """"""""""""""""""""""
-Sequential search models have been commonly applied in economics & marketing. A consumer faces :math:`J` products (or options). She decides which options to search and which option to buy. Searching an option incurs a search cost but also reveals some utility for that option.  The search model estimated by the pre-trained NNE here is a standard one. The exact specification of it is given in :ref:`Wei and Jiang (2024b) <papers_home>`. Here we give a high-level description:
+Sequential search models have been commonly applied in economics & marketing. A consumer faces :math:`J` products (or options). She decides which options to search and which option to buy. Searching an option incurs a search cost but also reveals some utility for that option.  The search model estimated by the pretrained NNE here is a standard one. The exact specification of it is given in :ref:`Wei and Jiang (2025) <papers_home>`. Here we give a high-level description:
 
 * A consumer searches and chooses among a list of products, plus an outside good. A free search is endowed (because in most data each consumer searches at least once).
 * The list shows some **product attributes** that affect consumer's utility for products. The effects of these attributes are described by coefficients :math:`\beta`.
@@ -81,7 +81,7 @@ For a survey on empirical applications of search models, see :ref:`Ursu, Seiler,
 
 2) Data format
 """"""""""""""""""""""
-To use the pre-trained NNE, organize data into five arrays: ``Y``, ``Xp``, ``Xa``, ``Xc``, and ``consumer_index``. Respectively, they store search & purchase outcomes, product attributes, advertising attributes, consumer attributes, and consumer identifiers.
+To use the pretrained NNE, organize data into five arrays: ``Y``, ``Xp``, ``Xa``, ``Xc``, and ``consumer_index``. Respectively, they store search & purchase outcomes, product attributes, advertising attributes, consumer attributes, and consumer identifiers.
 
 Below, we illustrate with an example of shopping at an online retailer. There are :math:`n` = 10,000 consumers and :math:`J` = 15 options per consumer. Below shows a preview of the top rows of  ``consumer_index``, ``Y``, ``Xp``, and ``Xa``. Note there are :math:`nJ` rows in total. We see:
 
@@ -164,9 +164,9 @@ We see :math:`\alpha_1` is negative, indicating that the products highlighted by
 Papers
 ---------------
 
-Wei, Yanhao 'Max' and Zhenling Jiang (2024a), "Estimating Parameters of Structural Models with Neural Networks," Accepted at Marketing Science. 
+Wei, Yanhao 'Max' and Zhenling Jiang (2024), "Estimating Parameters of Structural Models with Neural Networks," Accepted at Marketing Science. 
 
-Wei, Yanhao 'Max' and Zhenling Jiang (2024b), "A Pre-trained Estimator for Consumer Search Models."
+Wei, Yanhao 'Max' and Zhenling Jiang (2025), "Pretraining Estimators for Structural Models: Application to Consumer Search."
 
 Ursu, Raluca, Stephan Seiler, and Elisabeth Honka (2022), "The Sequential Search Model: A Framework for Empirical Research." 
 
