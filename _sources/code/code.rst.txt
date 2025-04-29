@@ -11,7 +11,7 @@ You can find the Matlab (R2024a) files in this `GitHub directory <https://github
 
 Below is documentation for the files. However, we suggest first reading the example in :ref:`home <home>`, which is an easier way to get a general idea of how the code works.
 
-Range of data accepted:
+**Range of data accepted:**
 '''''''''''''''''''''''''
 
 .. role:: note-text
@@ -30,7 +30,7 @@ In addition, the NNE is pretrained on data with following characteristics. If yo
 - **Average number of searches** per consumer is 1 ~ 5.
 
 
-Description of files 
+**Description of files** 
 '''''''''''''''''''''''
 
 
