@@ -30,7 +30,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=dcf890e0" />
   
@@ -306,9 +306,9 @@ document.write(`
 </div>
 <section id="welcome-to-pre-trained-nne">
 <h1>Welcome to Pre-trained NNE<a class="headerlink" href="#welcome-to-pre-trained-nne" title="Link to this heading">#</a></h1>
-<p>(<span class="note-text">Note: This website is still under construction. Last update on May 20, 2024.</span>)</p>
-<p>This is the companion website for <a class="reference internal" href="#papers-home"><span class="std std-ref">Wei and Jiang (2024b)</span></a>. It provides a pre-trained estimator for a consumer search model used in economics &amp; marketing. It is based on a neural net that recognizes search model parameters from data patterns. We call it pre-trained neural net estimator (NNE). The approach extends <a class="reference internal" href="#papers-home"><span class="std std-ref">Wei and Jiang (2024a)</span></a> and is generally applicable to structural models. But here we focus on a consumer search model.</p>
-<p>Below is a brief overview of applying pre-trained NNE to your search data. For Matlab code and documentation, see <a class="reference internal" href="code/code.html#code"><span class="std std-ref">code</span></a> page. For examples to try out, see <a class="reference internal" href="data/data.html#data"><span class="std std-ref">data</span></a> page.</p>
+<p>(<span class="note-text">Note: This website is still under construction. Last update on Apr 30, 2025.</span>)</p>
+<p>This is the companion website for <a class="reference internal" href="#papers-home"><span class="std std-ref">Wei and Jiang (2025)</span></a>. It provides a pretrained estimator for a consumer search model used in economics &amp; marketing. It is based on a neural net that recognizes search model parameters from data patterns. We call it pretrained neural net estimator (NNE). The approach extends <a class="reference internal" href="#papers-home"><span class="std std-ref">Wei and Jiang (2024)</span></a> and is generally applicable to structural models. But here we focus on a consumer search model.</p>
+<p>Below is a brief overview of applying pretrained NNE to your search data. For Matlab code and documentation, see <a class="reference internal" href="code/code.html#code"><span class="std std-ref">code</span></a> page. For examples to try out, see <a class="reference internal" href="data/data.html#data"><span class="std std-ref">data</span></a> page.</p>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>The main function to execute estimation is <code class="docutils literal notranslate"><span class="pre">nne_estimate.m</span></code>, as shown below.</p>
@@ -344,7 +344,7 @@ document.write(`
 <p>The rest of this page gives more details on the search model, how to format your data, and how to get standard errors.</p>
 <section id="the-search-model">
 <h3>1) The search model<a class="headerlink" href="#the-search-model" title="Link to this heading">#</a></h3>
-<p>Sequential search models have been commonly applied in economics &amp; marketing. A consumer faces <span class="math notranslate nohighlight">\(J\)</span> products (or options). She decides which options to search and which option to buy. Searching an option incurs a search cost but also reveals some utility for that option.  The search model estimated by the pre-trained NNE here is a standard one. The exact specification of it is given in <a class="reference internal" href="#papers-home"><span class="std std-ref">Wei and Jiang (2024b)</span></a>. Here we give a high-level description:</p>
+<p>Sequential search models have been commonly applied in economics &amp; marketing. A consumer faces <span class="math notranslate nohighlight">\(J\)</span> products (or options). She decides which options to search and which option to buy. Searching an option incurs a search cost but also reveals some utility for that option.  The search model estimated by the pretrained NNE here is a standard one. The exact specification of it is given in <a class="reference internal" href="#papers-home"><span class="std std-ref">Wei and Jiang (2025)</span></a>. Here we give a high-level description:</p>
 <ul class="simple">
 <li><p>A consumer searches and chooses among a list of products, plus an outside good. A free search is endowed (because in most data each consumer searches at least once).</p></li>
 <li><p>The list shows some <strong>product attributes</strong> that affect consumer’s utility for products. The effects of these attributes are described by coefficients <span class="math notranslate nohighlight">\(\beta\)</span>.</p></li>
@@ -355,7 +355,7 @@ document.write(`
 </section>
 <section id="data-format">
 <h3>2) Data format<a class="headerlink" href="#data-format" title="Link to this heading">#</a></h3>
-<p>To use the pre-trained NNE, organize data into five arrays: <code class="docutils literal notranslate"><span class="pre">Y</span></code>, <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code>. Respectively, they store search &amp; purchase outcomes, product attributes, advertising attributes, consumer attributes, and consumer identifiers.</p>
+<p>To use the pretrained NNE, organize data into five arrays: <code class="docutils literal notranslate"><span class="pre">Y</span></code>, <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, <code class="docutils literal notranslate"><span class="pre">Xa</span></code>, <code class="docutils literal notranslate"><span class="pre">Xc</span></code>, and <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code>. Respectively, they store search &amp; purchase outcomes, product attributes, advertising attributes, consumer attributes, and consumer identifiers.</p>
 <p>Below, we illustrate with an example of shopping at an online retailer. There are <span class="math notranslate nohighlight">\(n\)</span> = 10,000 consumers and <span class="math notranslate nohighlight">\(J\)</span> = 15 options per consumer. Below shows a preview of the top rows of  <code class="docutils literal notranslate"><span class="pre">consumer_index</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, <code class="docutils literal notranslate"><span class="pre">Xp</span></code>, and <code class="docutils literal notranslate"><span class="pre">Xa</span></code>. Note there are <span class="math notranslate nohighlight">\(nJ\)</span> rows in total. We see:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">consumer_idx</span></code> is a column vector. Each value indicates the consumer.</p></li>
@@ -431,8 +431,8 @@ document.write(`
 </section>
 <section id="papers">
 <span id="papers-home"></span><h2>Papers<a class="headerlink" href="#papers" title="Link to this heading">#</a></h2>
-<p>Wei, Yanhao ‘Max’ and Zhenling Jiang (2024a), “Estimating Parameters of Structural Models with Neural Networks,” Accepted at Marketing Science.</p>
-<p>Wei, Yanhao ‘Max’ and Zhenling Jiang (2024b), “A Pre-trained Estimator for Consumer Search Models.”</p>
+<p>Wei, Yanhao ‘Max’ and Zhenling Jiang (2024), “Estimating Parameters of Structural Models with Neural Networks,” Accepted at Marketing Science.</p>
+<p>Wei, Yanhao ‘Max’ and Zhenling Jiang (2025), “Pretraining Estimators for Structural Models: Application to Consumer Search.”</p>
 <p>Ursu, Raluca, Stephan Seiler, and Elisabeth Honka (2022), “The Sequential Search Model: A Framework for Empirical Research.”</p>
 <div class="line-block">
 <div class="line"><br /></div>
