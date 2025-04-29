@@ -21,7 +21,7 @@ Welcome to Pre-trained NNE
 
 .. role:: note-text
 
-(:note-text:`Note\: This website is still under construction. Last update on Apr 28, 2025.`)
+(:note-text:`Note\: This website is still under construction. Last update on Apr 30, 2025.`)
 
 This is the companion website for :ref:`Wei and Jiang (2025) <papers_home>`. It provides a pretrained estimator for a consumer search model used in economics & marketing. It is based on a neural net that recognizes search model parameters from data patterns. We call it pretrained neural net estimator (NNE). The approach extends :ref:`Wei and Jiang (2024) <papers_home>` and is generally applicable to structural models. But here we focus on a consumer search model.
 
