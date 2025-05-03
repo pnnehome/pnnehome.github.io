@@ -21,11 +21,11 @@ Welcome to Pre-trained NNE
 
 .. role:: note-text
 
-(:note-text:`Note\: This website is still under construction. Last update on Apr 30, 2025.`)
+(:note-text:`Note\: This website is being updated over time. Last update on May 3, 2025.`)
 
-This is the companion website for :ref:`Wei and Jiang (2025) <papers_home>`. It provides a pretrained estimator for a consumer search model used in economics & marketing. It is based on a neural net that recognizes search model parameters from data patterns. We call it pretrained neural net estimator (NNE). The approach extends :ref:`Wei and Jiang (2024) <papers_home>` and is generally applicable to structural models. But here we focus on a consumer search model.
+This is the companion website for :ref:`Wei and Jiang (2025) <papers_home>`. It provides a pretrained estimator for a consumer search model used in economics & marketing. The estimator is based on a neural net that recognizes search model parameters from data patterns. We call it pretrained neural net estimator (NNE). The approach extends :ref:`Wei and Jiang (2024) <papers_home>` and is generally applicable to structural models, though here we focus on a search model.
 
-Below is a brief overview of applying pretrained NNE to your search data. For Matlab code and documentation, see :ref:`code <code>` page. For examples to try out, see :ref:`data <data>` page.
+Below is a brief overview of how to apply pretrained NNE to your search data. For Matlab code and detailed documentation, see :ref:`code <code>` page. For examples to try out, see :ref:`data <data>` page.
 
 Overview
 ------------------
