@@ -76,7 +76,7 @@ Sequential search models have been commonly applied in economics & marketing. A 
 * There may be some **consumer attributes** that affect consumer's outside utility. The effects of these attributes are described by coefficients :math:`\eta`.
 * There may also be **advertising attributes** that affect search costs (but not utility). The effects of these attributes are described by coefficients :math:`\alpha`. 
 
-For a survey on empirical applications of search models, see :ref:`Ursu, Seiler, & Honka (2022) <papers_home>`.
+For a survey on empirical applications of search models, see :ref:`Ursu, Seiler, & Honka (2025) <papers_home>`.
 
 
 2) Data format
@@ -168,7 +168,7 @@ Wei, Yanhao 'Max' and Zhenling Jiang (2024), "Estimating Parameters of Structura
 
 Wei, Yanhao 'Max' and Zhenling Jiang (2025), "Pretraining Estimators for Structural Models: Application to Consumer Search."
 
-Ursu, Raluca, Stephan Seiler, and Elisabeth Honka (2022), "The Sequential Search Model: A Framework for Empirical Research." 
+Ursu, Raluca, Stephan Seiler, and Elisabeth Honka (2025), "The Sequential Search Model: A Framework for Empirical Research." QME, 23(1): 165-213.
 
 |
 

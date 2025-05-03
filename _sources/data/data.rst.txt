@@ -7,10 +7,10 @@
 Data
 ============
 
-We share four sample datasets on which one can apply the pre-trained NNE.  You can find them in Matlab formats at `GitHub directory <https://github.com/pnnehome/code_matlab>`_. These datasets are used in :ref:`Wei and Jiang (2025) <papers_data>` and come from sources with direct public access. More detailed descriptions of these datasets can be found in the paper too.
+We share four datasets as examples for one to apply the pretrained NNE.  You can find them in Matlab files in the "sample_data" folder at this `GitHub directory <https://github.com/pnnehome/code_matlab>`_. These datasets are used in :ref:`Wei and Jiang (2025) <papers_data>` and come from sources with direct public access. More detailed descriptions of these datasets can be found in the paper too.
 
 
-Information of the datasets
+Description of the datasets
 ''''''''''''''''''''''''''''''
 
 
@@ -21,12 +21,12 @@ This dataset comes from `a Kaggle contest <https://www.kaggle.com/competitions/e
 
 Expedia - destination 2
 """"""""""""""""""""""""
-This dataset consists of the search sessions for the second largest travel destination in the same contest as above. There are :math:`n` = 897 sessions, slightly smaller than required by the pre-trained NNE (see :ref:`code <code>`). Nevertheless, in this case the pre-trained NNE seems to work OK despite this small shortfall.
+This dataset consists of the search sessions for the second largest travel destination in the same contest as above. There are :math:`n` = 897 sessions, slightly smaller than required by the pretrained NNE (see :ref:`code <code>`). Nevertheless, in this case the pretrained NNE seems to work OK despite this small shortfall.
 
 
 Trivago - desktop channel
 """""""""""""""""""""""""""
-This dataset comes from the `ACM RecSys Challenge <https://recsys.trivago.cloud/challenge/dataset/>`_ that analyzes user sessions on Trivago.com. This dataset here consists of the search sessions made on the desktop channel. The setting of Trivago (a meta-search engine) does not exactly fit the standard sequential search model. Nevertheless, we find it a good place to try out the pre-trained NNE.
+This dataset comes from the `ACM RecSys Challenge <https://recsys.trivago.cloud/challenge/dataset/>`_ that analyzes user sessions on Trivago.com. This dataset here consists of the search sessions made on the desktop channel. The setting of Trivago (a meta-search engine) does not exactly fit the standard sequential search model. Nevertheless, we find it a good place to try out the pretrained NNE.
 
 
 Trivago - mobile channel
