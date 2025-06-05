@@ -1,4 +1,5 @@
-:html_theme.sidebar_secondary.remove:
+.. 
+   :html_theme.sidebar_secondary.remove:
 
 :parenttoc: True
 
@@ -7,7 +8,7 @@
 Data
 ============
 
-We share four datasets as examples for one to apply the pretrained NNE.  You can find them in Matlab files in the "sample_data" folder at this `GitHub directory <https://github.com/pnnehome/code_matlab>`_. These datasets are used in :ref:`Wei and Jiang (2025) <papers_data>` and come from sources with direct public access. More detailed descriptions of these datasets can be found in the paper too.
+We share four datasets as examples for users to try out the pretrained NNE.  You can find them (mat files) in the "sample_data" folder at this `GitHub directory <https://github.com/pnnehome/code_matlab>`_. These datasets are used in :ref:`Wei and Jiang (2025) <papers_data>` and come from public sources. More detailed descriptions of these datasets can be found in the paper too.
 
 
 Description of the datasets
@@ -16,22 +17,22 @@ Description of the datasets
 
 Expedia - destination 1
 """"""""""""""""""""""""
-This dataset comes from `a Kaggle contest <https://www.kaggle.com/competitions/expedia-personalized-sort/overview>`_ that studies hotel searches and bookings on Expedia.com. It has been used in several papers to study consumer online search behaviors. This dataset here consists of the search sessions for the largest travel destination in this contest. There are :math:`n` = 1258 sessions. There are 3 product attributes, 2 consumer attributes, and 1 advertising attribute.
+This dataset comes from `a Kaggle contest <https://www.kaggle.com/competitions/expedia-personalized-sort/overview>`_ that studies hotel searches and bookings on Expedia.com. It has been used in several papers to study consumer online search behaviors. This dataset here includes the search sessions for the largest travel destination in this contest. There are :math:`n` = 1258 sessions. There are 3 product attributes, 2 consumer attributes, and 1 advertising attribute.
 
 
 Expedia - destination 2
 """"""""""""""""""""""""
-This dataset consists of the search sessions for the second largest travel destination in the same contest as above. There are :math:`n` = 897 sessions, slightly smaller than required by the pretrained NNE (see :ref:`code <code>`). Nevertheless, in this case the pretrained NNE seems to work OK despite this small shortfall.
+This dataset includes the search sessions for the second largest travel destination in the same Kaggle contest as above. There are :math:`n` = 897 sessions, slightly smaller than the current requirement of the pretrained NNE (see :ref:`code <code>`). Despite this small shortfall, the pretrained NNE seems to work well in this case.
 
 
 Trivago - desktop channel
 """""""""""""""""""""""""""
-This dataset comes from the `ACM RecSys Challenge <https://recsys.trivago.cloud/challenge/dataset/>`_ that analyzes user sessions on Trivago.com. This dataset here consists of the search sessions made on the desktop channel. The setting of Trivago (a meta-search engine) does not exactly fit the standard sequential search model. Nevertheless, we find it a good place to try out the pretrained NNE.
+This dataset comes from the `ACM RecSys Challenge <https://recsys.acm.org/recsys19/challenge/>`_ that analyzes user sessions on Trivago.com. This dataset here includes the search sessions made on the desktop channel. The setting of Trivago does not exactly fit the standard sequential search model (because a purchase is not well defined). Nevertheless, it provides a good place to try out the pretrained NNE.
 
 
 Trivago - mobile channel
 """""""""""""""""""""""""""
-This dataset consists of the search sessions made on the mobile channel from the same source as above.
+This dataset includes the search sessions made on the mobile channel from the same RecSys Challenge above.
 
 
 |

@@ -1,4 +1,5 @@
-:html_theme.sidebar_secondary.remove:
+.. 
+   :html_theme.sidebar_secondary.remove:
 
 .. pNNE documentation master file, created by
    sphinx-quickstart on Mon Sep 18 12:08:20 2023.
@@ -21,16 +22,16 @@ Welcome to Pre-trained NNE
 
 .. role:: note-text
 
-(:note-text:`Note\: This website is being updated over time. Last update on May 3, 2025.`)
+(:note-text:`Note\: This website is being updated over time. Last update on June 5, 2025.`)
 
-This is the companion website for :ref:`Wei and Jiang (2025) <papers_home>`. It provides a pretrained estimator for a consumer search model used in economics & marketing. The estimator is based on a neural net that recognizes search model parameters from data patterns. We call it pretrained neural net estimator (NNE). The approach extends :ref:`Wei and Jiang (2024) <papers_home>` and is generally applicable to structural models, though here we focus on a search model.
+This is the companion website for :ref:`Wei and Jiang (2025) <papers_home>`. It provides a pretrained estimator for a consumer search model used in economics & marketing. The estimator is based on a neural net that recognizes search model parameters from data patterns. The neural net is pretrained so the estimation cost for users is minimal. We call this estimator a pretrained neural net estimator (NNE). Pretraining NNE is generally applicable to structural models, though here we focus on the search model.
 
-Below is a brief overview of how to apply pretrained NNE to your search data. For Matlab code and detailed documentation, see :ref:`code <code>` page. For examples to try out, see :ref:`data <data>` page.
+Below is a brief overview of how to apply the pretrained NNE to your search data. For Matlab code and detailed documentation, see :ref:`code <code>` page. For examples to try out, see :ref:`data <data>` page.
 
 Overview
 ------------------
 
-The main function to execute estimation is ``nne_estimate.m``, as shown below.
+The main function to execute is ``nne_estimate.m``, as shown below.
 
 .. code-block:: console
 
@@ -39,8 +40,8 @@ The main function to execute estimation is ``nne_estimate.m``, as shown below.
 Explanation for inputs and output: 
 
 * Input ``nne`` stores the trained neural net and some pre-defined settings, available from the file ``trained_nne.mat``.
-* Inputs ``Xp``, ``Xa``, ``Xc``, ``Y``, and ``consumer_index`` store your data (more on them below).
-* Output ``result`` is a table storing the parameter estimate for the search model.
+* Inputs ``Xp``, ``Xa``, ``Xc``, ``Y``, and ``consumer_idx`` are your data (more on them below).
+* Output ``result`` is a table with the parameter estimate for the search model.
 
 Below shows an example. The total execution time is 0.78 sec on a laptop. The time includes overheads such as some data sanity checks.
 
@@ -64,32 +65,30 @@ Below shows an example. The total execution time is 0.78 sec on a laptop. The ti
     "\beta_1"       0.25836
     "\beta_2"      -0.53811
 
-The rest of this page gives more details on the search model, how to format your data, and how to get standard errors.
+The rest of this page gives details on: (i) the search model, (ii) how to format data, and (iii) how to get standard errors.
 
 
 1) The search model
 """"""""""""""""""""""
-Sequential search models have been commonly applied in economics & marketing. A consumer faces :math:`J` products (or options). She decides which options to search and which option to buy. Searching an option incurs a search cost but also reveals some utility for that option.  The search model estimated by the pretrained NNE here is a standard one. The exact specification of it is given in :ref:`Wei and Jiang (2025) <papers_home>`. Here we give a high-level description:
+Sequential search models have been commonly applied in economics & marketing. A consumer faces :math:`J` products (or options). She decides which options to search and which option to buy. Searching an option incurs a search cost but also reveals some utility for that option.  The search model estimated by our pretrained NNE here is a standard one. The exact specification of it is given in :ref:`Wei and Jiang (2025) <papers_home>`. Here we give a high-level description:
 
-* A consumer searches and chooses among a list of products, plus an outside good. A free search is endowed (because in most data each consumer searches at least once).
-* The list shows some **product attributes** that affect consumer's utility for products. The effects of these attributes are described by coefficients :math:`\beta`.
-* There may be some **consumer attributes** that affect consumer's outside utility. The effects of these attributes are described by coefficients :math:`\eta`.
-* There may also be **advertising attributes** that affect search costs (but not utility). The effects of these attributes are described by coefficients :math:`\alpha`. 
+* A consumer faces a list of :math:`J` products plus an outside good. A free search is endowed (because in most data each consumer searches at least once).
+* The list shows some **product attributes** that affect consumer's utility for products. Their effects are described by :math:`\beta`.
+* There may be some **consumer attributes** that affect consumer's outside utility. Their effects are described by :math:`\eta`.
+* There may be **advertising attributes** that affect search costs (but not utility). Their effects are described by :math:`\alpha`. 
 
 For a survey on empirical applications of search models, see :ref:`Ursu, Seiler, & Honka (2025) <papers_home>`.
 
 
 2) Data format
 """"""""""""""""""""""
-To use the pretrained NNE, organize data into five arrays: ``Y``, ``Xp``, ``Xa``, ``Xc``, and ``consumer_index``. Respectively, they store search & purchase outcomes, product attributes, advertising attributes, consumer attributes, and consumer identifiers.
+Our code assumes that the data are represented in five arrays: ``Y``, ``Xp``, ``Xa``, ``Xc``, and ``consumer_idx``. The easiest way to explain them is through an example of shopping at an online retailer, which we illustrate below. There are :math:`n` = 10,000 consumers and :math:`J` = 15 options per consumer.
 
-Below, we illustrate with an example of shopping at an online retailer. There are :math:`n` = 10,000 consumers and :math:`J` = 15 options per consumer. Below shows a preview of the top rows of  ``consumer_index``, ``Y``, ``Xp``, and ``Xa``. Note there are :math:`nJ` rows in total. We see:
-
-* ``consumer_idx`` is a column vector. Each value indicates the consumer.
-* ``Y`` has two columns; the 1st column indicates search and 2nd column indicates purchase. In this example, we see the first consumer searched the 1st, 3rd, and 8th options. She bought the 3rd option. 
+* ``consumer_idx`` is a column vector with :math:`nJ` rows. Each value indicates the consumer.
+* ``Y`` has two columns with :math:`nJ` rows; the 1st column indicates searches and 2nd column indicates purchases. In this example, we see the first consumer searched the 1st, 3rd, and 8th options. She bought the 3rd option. 
 * ``Xp`` stores product attributes. In this example, there are two product attributes: a 1-5 product rating and log price. 
-* ``Xa`` stores advertising attributes. In this example, there is one advertising attribute: whether the product is highlighted on the retailer website.
-* ``Xc`` stores consumer attributes. It is not previewed below. It has only :math:`n` rows, one for each consumer.
+* ``Xa`` stores advertising attributes. In this example, the single advertising attribute indicates whether the product is highlighted on the retailer website.
+* ``Xc`` stores consumer attributes. It has only :math:`n` rows, one for each consumer. It is not shown below. 
 
 .. code-block:: console
 
@@ -117,26 +116,14 @@ Below, we illustrate with an example of shopping at an online retailer. There ar
            2        0    0    5      0.73669    1 
          :            :             :           : 
 
-Below show the dimensions of each variable. Outside this example, if your data do not feature advertising or consumer attributes, you can let ``Xa`` or ``Xc`` be an empty matrix.
-
-.. code-block:: console
-
-   >>  whos Xp Xa Xc Y consumer_idx
-
-       Name               Size             Bytes         Class      Attributes
-
-       Xa                150000x1         1200000        double 
-       Xc                 10000x3          240000        double 
-       Xp                150000x2         2400000        double              
-       consumer_idx      150000x1         1200000        double              
-       Y                 150000x2         2400000        double 
+More generally, if your data do not feature advertising or consumer attributes, you can simply let ``Xa`` or ``Xc`` be an empty matrix.
 
 
 3) Bootstrap standard errors
 """"""""""""""""""""""""""""""
 The ``nne_estimate.m`` function has standard error calculation built in. Simply add ``se = true`` option as shown below. The output will include an additional column of standard errors. The calculation bootstraps 50 samples so execution time will be somewhat longer, but it can take advantage of parallel computing toolbox if installed.
 
-We see :math:`\alpha_1` is negative, indicating that the products highlighted by the retailer enjoy a lower search cost (so they are more likely to be searched). We see :math:`\beta_1` is positive, indicating that consumer utility increases with product rating. We see :math:`\eta_1` is negative, indicating that the outside utility decreases with the first consumer attribute.
+In this example, we see :math:`\alpha_1` is negative, indicating that the highlighted products enjoy a lower search cost. We see :math:`\beta_1` is positive, indicating that consumer utility increases with product rating.
 
 .. code-block:: console
 
@@ -164,9 +151,9 @@ We see :math:`\alpha_1` is negative, indicating that the products highlighted by
 Papers
 ---------------
 
-Wei, Yanhao 'Max' and Zhenling Jiang (2024), "Estimating Parameters of Structural Models with Neural Networks," Accepted at Marketing Science. 
-
 Wei, Yanhao 'Max' and Zhenling Jiang (2025), "Pretraining Estimators for Structural Models: Application to Consumer Search."
+
+Wei, Yanhao 'Max' and Zhenling Jiang (2024), "Estimating Parameters of Structural Models with Neural Networks," Accepted at Marketing Science. 
 
 Ursu, Raluca, Stephan Seiler, and Elisabeth Honka (2025), "The Sequential Search Model: A Framework for Empirical Research." QME, 23(1): 165-213.
 
